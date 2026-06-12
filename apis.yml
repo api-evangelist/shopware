@@ -1,0 +1,94 @@
+---
+aid: shopware
+name: Shopware
+description: >-
+  Shopware is an open-source, API-first e-commerce platform built on Symfony and
+  Vue.js, serving mid-market and enterprise merchants across B2C, D2C, and B2B use
+  cases. The platform exposes two primary HTTP APIs: an Admin API for back-office
+  integrations and automation, and a Store API for building headless customer-facing
+  storefronts. Both APIs publish machine-readable OpenAPI 3 specifications directly
+  from each running instance. Shopware is available as a free Community Edition
+  (MIT-licensed), and as paid SaaS and self-hosted tiers (Rise, Evolve, Beyond)
+  unlocking additional commerce capabilities.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - E-Commerce
+  - Open Source
+  - Headless Commerce
+  - B2B
+  - B2C
+  - REST
+  - OAuth2
+url: https://raw.githubusercontent.com/api-evangelist/shopware/refs/heads/main/apis.yml
+created: '2026-06-12'
+modified: '2026-06-12'
+specificationVersion: '0.19'
+apis:
+  - aid: shopware:admin-api
+    name: Shopware Admin API
+    description: >-
+      The Admin API provides programmatic access to all back-office and
+      administrative operations in Shopware 6, including product management,
+      order processing, customer data, indexing, and configuration. It uses
+      OAuth 2.0 authentication and publishes an OpenAPI 3 specification at
+      /api/_info/openapi3.json on every running instance.
+    humanURL: https://shopware.stoplight.io/docs/admin-api
+    baseURL: https://{your-shop-domain}/api
+    tags:
+      - Admin
+      - E-Commerce
+      - OAuth2
+      - REST
+    properties:
+      - type: Documentation
+        url: https://shopware.stoplight.io/docs/admin-api
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/shopware/admin-api-reference/main/stoplightio/adminapi.json
+  - aid: shopware:store-api
+    name: Shopware Store API
+    description: >-
+      The Store API is the customer-facing API for Shopware 6, designed for
+      building headless storefronts and progressive web apps. It exposes
+      endpoints for product catalog browsing, cart management, checkout,
+      customer authentication, and order history. The API is publicly
+      accessible for catalog data and requires contextual headers for
+      customer-specific operations.
+    humanURL: https://shopware.stoplight.io/docs/store-api
+    baseURL: https://{your-shop-domain}/store-api
+    tags:
+      - Storefront
+      - Headless Commerce
+      - REST
+      - E-Commerce
+    properties:
+      - type: Documentation
+        url: https://shopware.stoplight.io/docs/store-api
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/shopware/store-api-reference/main/stoplightio/storeapi.json
+common:
+  - type: Website
+    url: https://www.shopware.com
+  - type: Documentation
+    url: https://developer.shopware.com/docs/concepts/api/
+  - type: GitHubOrganization
+    url: https://github.com/shopware
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/shopware-ag/
+  - type: Blog
+    url: https://www.shopware.com/en/news/
+  - type: Pricing
+    url: https://www.shopware.com/en/pricing/
+  - type: StatusPage
+    url: https://status.shopware.com/
+  - type: X
+    url: https://x.com/shopwaredevs
+  - type: Plans
+    url: plans/shopware-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/shopware-rate-limits.yml
+  - type: FinOps
+    url: finops/shopware-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
