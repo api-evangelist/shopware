@@ -1,0 +1,21 @@
+{
+  "repo": "shopware",
+  "feeds": [
+    {
+      "source": "https://www.shopware.com/en/news/",
+      "feed_url": "https://www.shopware.com/en/news/feed/",
+      "title": "Shopware News",
+      "saved": 0,
+      "method": "none"
+    },
+    {
+      "source": "https://developer.shopware.com/changelog/",
+      "feed_url": "https://developer.shopware.com/changelog/feed.xml",
+      "title": "Shopware Developer Changelog",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-06-12T00:00:00Z"
+}

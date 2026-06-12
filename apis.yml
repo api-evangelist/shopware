@@ -44,7 +44,9 @@ apis:
       - type: Documentation
         url: https://shopware.stoplight.io/docs/admin-api
       - type: OpenAPI
-        url: https://raw.githubusercontent.com/shopware/admin-api-reference/main/stoplightio/adminapi.json
+        url: https://raw.githubusercontent.com/shopware/admin-api-reference/main/adminapi.json
+      - type: OpenAPI
+        url: openapi/shopware-admin-api-openapi.yml
   - aid: shopware:store-api
     name: Shopware Store API
     description: >-
@@ -65,7 +67,9 @@ apis:
       - type: Documentation
         url: https://shopware.stoplight.io/docs/store-api
       - type: OpenAPI
-        url: https://raw.githubusercontent.com/shopware/store-api-reference/main/stoplightio/storeapi.json
+        url: https://raw.githubusercontent.com/shopware/store-api-reference/main/storeapi.json
+      - type: OpenAPI
+        url: openapi/shopware-store-api-openapi.yml
 common:
   - type: Website
     url: https://www.shopware.com
@@ -89,6 +93,18 @@ common:
     url: rate-limits/shopware-rate-limits.yml
   - type: FinOps
     url: finops/shopware-finops.yml
+  - type: Vocabulary
+    url: vocabulary/shopware-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/shopware-context.jsonld
+  - type: JSONSchema
+    url: json-schema/shopware-product-schema.json
+  - type: JSONSchema
+    url: json-schema/shopware-cart-schema.json
+  - type: JSONSchema
+    url: json-schema/shopware-order-schema.json
+  - type: Blogs
+    url: blogs/blogs.json
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

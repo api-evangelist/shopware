@@ -1,0 +1,106 @@
+{
+  "_comment": "Example: POST /store-api/search — Full-text product search with filters and aggregations",
+  "request": {
+    "method": "POST",
+    "url": "https://your-shop.example.com/store-api/search",
+    "headers": {
+      "sw-access-key": "SWSCSM5ZVXJBSZCSTDPNM0BGQQ",
+      "sw-context-token": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    "body": {
+      "term": "t-shirt",
+      "page": 1,
+      "limit": 24,
+      "filter": [
+        {
+          "type": "range",
+          "field": "price",
+          "parameters": {
+            "gte": 10,
+            "lte": 100
+          }
+        },
+        {
+          "type": "equals",
+          "field": "active",
+          "value": true
+        }
+      ],
+      "sort": [
+        {
+          "field": "name",
+          "order": "ASC",
+          "naturalSorting": false
+        }
+      ],
+      "aggregations": [
+        {
+          "name": "manufacturer",
+          "type": "entity",
+          "field": "manufacturerId",
+          "definition": "product_manufacturer",
+          "aggregation": {
+            "name": "manufacturerCount",
+            "type": "count",
+            "field": "id"
+          }
+        }
+      ],
+      "includes": {
+        "product": ["id", "name", "productNumber", "calculatedPrice", "cover"]
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "total": 3,
+      "elements": [
+        {
+          "id": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+          "name": "Shopware Premium T-Shirt",
+          "productNumber": "SW-10023",
+          "calculatedPrice": {
+            "unitPrice": 29.99,
+            "totalPrice": 29.99,
+            "quantity": 1,
+            "calculatedTaxes": [
+              {
+                "tax": 4.79,
+                "taxRate": 19,
+                "price": 29.99
+              }
+            ],
+            "taxRules": [
+              {
+                "taxRate": 19,
+                "percentage": 100
+              }
+            ],
+            "listPrice": {
+              "price": 39.99,
+              "discount": 10.0,
+              "percentage": 25.01
+            }
+          },
+          "cover": {
+            "url": "https://your-shop.example.com/thumbnail/product/a1b2c3/800x800.jpg",
+            "alt": null,
+            "title": null
+          }
+        }
+      ],
+      "aggregations": {
+        "manufacturer": {
+          "entities": [],
+          "apiAlias": "product_manufacturer_aggregation"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "_comment": "Example: POST /store-api/checkout/cart/line-item — Add a product to the cart via Shopware Store API",
+  "request": {
+    "method": "POST",
+    "url": "https://your-shop.example.com/store-api/checkout/cart/line-item",
+    "headers": {
+      "sw-access-key": "SWSCSM5ZVXJBSZCSTDPNM0BGQQ",
+      "sw-context-token": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    "body": {
+      "items": [
+        {
+          "id": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+          "referencedId": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+          "type": "product",
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "sw-context-token": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4"
+    },
+    "body": {
+      "name": "mainCart",
+      "token": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+      "price": {
+        "netPrice": 50.4,
+        "totalPrice": 59.98,
+        "calculatedTaxes": [
+          {
+            "tax": 9.58,
+            "taxRate": 19,
+            "price": 59.98
+          }
+        ],
+        "taxRules": [
+          {
+            "taxRate": 19,
+            "percentage": 100
+          }
+        ],
+        "positionPrice": 59.98,
+        "taxStatus": "gross",
+        "rawTotal": 59.98
+      },
+      "lineItems": [
+        {
+          "id": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+          "referencedId": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+          "label": "Shopware Premium T-Shirt",
+          "quantity": 2,
+          "type": "product",
+          "good": true,
+          "removable": true,
+          "stackable": true,
+          "modified": false,
+          "price": {
+            "unitPrice": 29.99,
+            "totalPrice": 59.98,
+            "quantity": 2,
+            "calculatedTaxes": [
+              {
+                "tax": 9.58,
+                "taxRate": 19,
+                "price": 59.98
+              }
+            ],
+            "taxRules": [
+              {
+                "taxRate": 19,
+                "percentage": 100
+              }
+            ]
+          },
+          "cover": {
+            "url": "https://your-shop.example.com/thumbnail/product/a1b2c3/800x800.jpg",
+            "alt": null,
+            "title": null
+          },
+          "payload": {
+            "productNumber": "SW-10023",
+            "manufacturerId": null,
+            "taxId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+            "isCloseout": false,
+            "purchaseSteps": 1,
+            "minPurchase": 1,
+            "maxPurchase": 50,
+            "shippingFree": false,
+            "markAsTopseller": false
+          }
+        }
+      ],
+      "errors": {},
+      "deliveries": [],
+      "transactions": [],
+      "modified": true,
+      "customerComment": null,
+      "affiliateCode": null,
+      "campaignCode": null
+    }
+  }
+}
