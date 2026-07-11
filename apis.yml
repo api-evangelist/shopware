@@ -71,6 +71,10 @@ apis:
       - type: OpenAPI
         url: openapi/shopware-store-api-openapi.yml
 common:
+  - type: VulnerabilityDisclosure
+    url: security/shopware-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/shopware-domain-security.yml
   - type: Authentication
     url: authentication/shopware-authentication.yml
   - type: OAuthScopes

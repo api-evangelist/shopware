@@ -1,0 +1,31 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/shopware-admin-api-openapi.yml, openapi/shopware-store-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  - oauth2
+  api_key_in:
+  - header
+  oauth2_flows:
+  - clientCredentials
+  - password
+schemes:
+- name: oAuth2
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: /api/oauth/token
+    scopes: 1
+  - flow: password
+    tokenUrl: /api/oauth/token
+    scopes: 1
+  sources:
+  - openapi/shopware-admin-api-openapi.yml
+- name: swAccessKey
+  type: apiKey
+  in: header
+  parameter: sw-access-key
+  description: Sales channel access key
+  sources:
+  - openapi/shopware-store-api-openapi.yml
