@@ -2,18 +2,14 @@
   "repo": "shopware",
   "feeds": [
     {
-      "source": "https://www.shopware.com/en/news/",
-      "feed_url": "",
-      "saved": 1,
-      "method": "agent-scrape"
-    },
-    {
       "source": "https://www.linkedin.com/company/shopware-ag/",
+      "feed_url": "https://www.linkedin.com/company/shopware-ag/",
+      "title": "",
       "saved": 0,
-      "error": "HTTPError"
+      "method": "none"
     }
   ],
-  "post_count": 6,
-  "fetched": "2026-06-27T13:10:00Z",
+  "post_count": 9,
+  "fetched": "2026-07-11T11:50:51Z",
   "agent_pulled": "2026-06-27"
 }
