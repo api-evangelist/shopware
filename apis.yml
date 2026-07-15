@@ -71,6 +71,8 @@ apis:
       - type: OpenAPI
         url: openapi/shopware-store-api-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/shopware-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/shopware-vulnerability-disclosure.yml
   - type: DomainSecurity
