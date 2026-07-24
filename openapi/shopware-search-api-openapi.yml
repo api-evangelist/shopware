@@ -1,0 +1,338 @@
+openapi: 3.1.0
+info:
+  title: Shopware Admin Account Search API
+  version: 6.7.9999999-dev
+  description: The Shopware Admin API provides programmatic access to all back-office and administrative operations including product management, order processing, customer data, indexing, and configuration. It uses OAuth 2.0 authentication and covers 658 endpoints across the full Shopware data model.
+  contact:
+    name: Shopware Developer Documentation
+    url: https://developer.shopware.com/docs/concepts/api/admin-api.html
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://{shopDomain}/api
+  description: Self-hosted or SaaS Shopware instance Admin API
+  variables:
+    shopDomain:
+      default: your-shop.example.com
+      description: Hostname of the Shopware instance
+security:
+- oAuth2:
+  - write:all
+tags:
+- name: Search
+  description: DAL-powered search with filter, sort, and aggregation
+paths:
+  /search/product:
+    post:
+      operationId: searchProducts
+      summary: Search products
+      description: Full-featured product search with filter, sort, aggregation support.
+      tags:
+      - Search
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchCriteria'
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductListResponse'
+  /search:
+    post:
+      operationId: searchStore
+      summary: Search products
+      description: Search for products in the storefront. Supports filters, sorting, aggregations and full-text search.
+      tags:
+      - Search
+      parameters:
+      - $ref: '#/components/parameters/SwContextToken'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoreCriteria'
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductListResponse_2'
+components:
+  schemas:
+    Price:
+      type: object
+      description: Currency-specific price entry
+      required:
+      - currencyId
+      - gross
+      - net
+      - linked
+      properties:
+        currencyId:
+          type: string
+          pattern: ^[0-9a-f]{32}$
+        gross:
+          type: number
+          format: float
+          description: Gross price (including tax)
+        net:
+          type: number
+          format: float
+          description: Net price (excluding tax)
+        linked:
+          type: boolean
+          description: If true, net price is calculated from gross automatically
+        listPrice:
+          type: object
+          description: Original / strike-through price
+          properties:
+            gross:
+              type: number
+              format: float
+            net:
+              type: number
+              format: float
+            linked:
+              type: boolean
+    SearchCriteria:
+      type: object
+      description: Shopware DAL search criteria
+      properties:
+        page:
+          type: integer
+          default: 1
+        limit:
+          type: integer
+          default: 25
+        filter:
+          type: array
+          items:
+            type: object
+        sort:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              order:
+                type: string
+                enum:
+                - ASC
+                - DESC
+        aggregations:
+          type: array
+          items:
+            type: object
+        term:
+          type: string
+          description: Full-text search term
+        includes:
+          type: object
+          description: Sparse fieldsets per entity
+    StoreCriteria:
+      type: object
+      properties:
+        page:
+          type: integer
+          default: 1
+        limit:
+          type: integer
+          default: 24
+        filter:
+          type: array
+          items:
+            type: object
+        sort:
+          type: array
+          items:
+            type: object
+        term:
+          type: string
+        includes:
+          type: object
+    Product_2:
+      type: object
+      properties:
+        id:
+          type: string
+        productNumber:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        active:
+          type: boolean
+        cover:
+          type: object
+          properties:
+            id:
+              type: string
+            url:
+              type: string
+        calculatedPrice:
+          $ref: '#/components/schemas/CalculatedPrice'
+        calculatedListingPrice:
+          type: object
+        availableStock:
+          type: integer
+    ProductListResponse_2:
+      type: object
+      properties:
+        total:
+          type: integer
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product_2'
+    CalculatedPrice:
+      type: object
+      properties:
+        unitPrice:
+          type: number
+          format: float
+        totalPrice:
+          type: number
+          format: float
+        quantity:
+          type: integer
+        calculatedTaxes:
+          type: array
+          items:
+            type: object
+            properties:
+              tax:
+                type: number
+              taxRate:
+                type: number
+              price:
+                type: number
+        taxRules:
+          type: array
+          items:
+            type: object
+    Product:
+      type: object
+      description: Shopware product entity (since version 6.0.0.0)
+      required:
+      - id
+      - taxId
+      - price
+      - productNumber
+      - stock
+      - name
+      properties:
+        id:
+          type: string
+          pattern: ^[0-9a-f]{32}$
+          description: Unique identity of the product
+        versionId:
+          type: string
+          pattern: ^[0-9a-f]{32}$
+          description: Unique identity of the product version
+        parentId:
+          type: string
+          pattern: ^[0-9a-f]{32}$
+          description: Unique identity of the parent product (for variants)
+        manufacturerId:
+          type: string
+          pattern: ^[0-9a-f]{32}$
+          description: Unique identity of the manufacturer
+        taxId:
+          type: string
+          pattern: ^[0-9a-f]{32}$
+          description: Unique identity of tax
+        productNumber:
+          type: string
+          description: SKU / unique product number
+        stock:
+          type: integer
+          format: int64
+          description: Available stock quantity
+        name:
+          type: string
+          description: Product name (translatable)
+        description:
+          type: string
+          description: Long product description (HTML allowed, translatable)
+        price:
+          type: array
+          items:
+            $ref: '#/components/schemas/Price'
+          description: Currency-specific prices
+        active:
+          type: boolean
+          description: Whether the product is visible in the storefront
+        ean:
+          type: string
+          description: EAN barcode
+        markAsTopseller:
+          type: boolean
+          description: Flag to highlight as a bestseller
+        weight:
+          type: number
+          format: float
+          description: Product weight in kg
+        width:
+          type: number
+          format: float
+          description: Product width in mm
+        height:
+          type: number
+          format: float
+          description: Product height in mm
+        length:
+          type: number
+          format: float
+          description: Product length in mm
+        isCloseout:
+          type: boolean
+          description: If true, product cannot be bought when out of stock
+        createdAt:
+          type: string
+          format: date-time
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          readOnly: true
+    ProductListResponse:
+      type: object
+      properties:
+        total:
+          type: integer
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+  parameters:
+    SwContextToken:
+      name: sw-context-token
+      in: header
+      description: Customer session context token
+      schema:
+        type: string
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: /api/oauth/token
+          scopes:
+            write:all: Full write access to all Admin API resources
+        password:
+          tokenUrl: /api/oauth/token
+          scopes:
+            write:all: Full write access to all Admin API resources
+externalDocs:
+  description: Full interactive specification (Stoplight)
+  url: https://shopware.stoplight.io/docs/admin-api

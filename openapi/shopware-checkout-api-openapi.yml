@@ -1,0 +1,96 @@
+openapi: 3.1.0
+info:
+  title: Shopware Admin Account Checkout API
+  version: 6.7.9999999-dev
+  description: The Shopware Admin API provides programmatic access to all back-office and administrative operations including product management, order processing, customer data, indexing, and configuration. It uses OAuth 2.0 authentication and covers 658 endpoints across the full Shopware data model.
+  contact:
+    name: Shopware Developer Documentation
+    url: https://developer.shopware.com/docs/concepts/api/admin-api.html
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://{shopDomain}/api
+  description: Self-hosted or SaaS Shopware instance Admin API
+  variables:
+    shopDomain:
+      default: your-shop.example.com
+      description: Hostname of the Shopware instance
+security:
+- oAuth2:
+  - write:all
+tags:
+- name: Checkout
+  description: Complete the purchase workflow
+paths:
+  /checkout/order:
+    post:
+      operationId: createOrder
+      summary: Create order from cart
+      description: Converts the current cart into an order.
+      tags:
+      - Checkout
+      parameters:
+      - $ref: '#/components/parameters/SwContextToken'
+      responses:
+        '200':
+          description: Order created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '400':
+          description: Validation error (e.g. insufficient stock)
+components:
+  parameters:
+    SwContextToken:
+      name: sw-context-token
+      in: header
+      description: Customer session context token
+      schema:
+        type: string
+  schemas:
+    Order:
+      type: object
+      properties:
+        id:
+          type: string
+        orderNumber:
+          type: string
+        orderDateTime:
+          type: string
+          format: date-time
+        amountTotal:
+          type: number
+          format: float
+        amountNet:
+          type: number
+          format: float
+        lineItems:
+          type: array
+          items:
+            type: object
+        stateMachineState:
+          type: object
+          properties:
+            name:
+              type: string
+            technicalName:
+              type: string
+        billingAddress:
+          type: object
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: /api/oauth/token
+          scopes:
+            write:all: Full write access to all Admin API resources
+        password:
+          tokenUrl: /api/oauth/token
+          scopes:
+            write:all: Full write access to all Admin API resources
+externalDocs:
+  description: Full interactive specification (Stoplight)
+  url: https://shopware.stoplight.io/docs/admin-api

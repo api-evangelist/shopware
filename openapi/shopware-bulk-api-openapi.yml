@@ -1,0 +1,116 @@
+openapi: 3.1.0
+info:
+  title: Shopware Admin Account Bulk API
+  version: 6.7.9999999-dev
+  description: The Shopware Admin API provides programmatic access to all back-office and administrative operations including product management, order processing, customer data, indexing, and configuration. It uses OAuth 2.0 authentication and covers 658 endpoints across the full Shopware data model.
+  contact:
+    name: Shopware Developer Documentation
+    url: https://developer.shopware.com/docs/concepts/api/admin-api.html
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://{shopDomain}/api
+  description: Self-hosted or SaaS Shopware instance Admin API
+  variables:
+    shopDomain:
+      default: your-shop.example.com
+      description: Hostname of the Shopware instance
+security:
+- oAuth2:
+  - write:all
+tags:
+- name: Bulk
+  description: High-throughput bulk upsert and delete operations
+paths:
+  /_action/sync:
+    post:
+      operationId: syncEntities
+      summary: Bulk sync entities
+      description: Synchronises multiple entity operations (upsert / delete) in a single request. Ideal for bulk imports.
+      tags:
+      - Bulk
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/SyncOperation'
+      responses:
+        '200':
+          description: Sync result summary
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SyncResult'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+components:
+  responses:
+    BadRequest:
+      description: Validation errors in the request body
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+              status:
+                type: string
+              title:
+                type: string
+              detail:
+                type: string
+    SyncResult:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+    SyncOperation:
+      type: object
+      description: A single sync payload entry for bulk operations
+      required:
+      - action
+      - entity
+      - payload
+      properties:
+        action:
+          type: string
+          enum:
+          - upsert
+          - delete
+        entity:
+          type: string
+          example: product
+        payload:
+          type: array
+          items:
+            type: object
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: /api/oauth/token
+          scopes:
+            write:all: Full write access to all Admin API resources
+        password:
+          tokenUrl: /api/oauth/token
+          scopes:
+            write:all: Full write access to all Admin API resources
+externalDocs:
+  description: Full interactive specification (Stoplight)
+  url: https://shopware.stoplight.io/docs/admin-api

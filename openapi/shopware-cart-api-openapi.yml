@@ -1,0 +1,306 @@
+openapi: 3.1.0
+info:
+  title: Shopware Admin Account Cart API
+  version: 6.7.9999999-dev
+  description: The Shopware Admin API provides programmatic access to all back-office and administrative operations including product management, order processing, customer data, indexing, and configuration. It uses OAuth 2.0 authentication and covers 658 endpoints across the full Shopware data model.
+  contact:
+    name: Shopware Developer Documentation
+    url: https://developer.shopware.com/docs/concepts/api/admin-api.html
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://{shopDomain}/api
+  description: Self-hosted or SaaS Shopware instance Admin API
+  variables:
+    shopDomain:
+      default: your-shop.example.com
+      description: Hostname of the Shopware instance
+security:
+- oAuth2:
+  - write:all
+tags:
+- name: Cart
+  description: Manage the shopping cart and its line items
+paths:
+  /checkout/cart:
+    get:
+      operationId: getCart
+      summary: Fetch or create a cart
+      description: Returns the current active cart for the customer session. Creates a new cart if none exists.
+      tags:
+      - Cart
+      parameters:
+      - $ref: '#/components/parameters/SwContextToken'
+      responses:
+        '200':
+          description: Current cart
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+    delete:
+      operationId: deleteCart
+      summary: Delete a cart
+      description: Removes the current cart for the customer session.
+      tags:
+      - Cart
+      parameters:
+      - $ref: '#/components/parameters/SwContextToken'
+      responses:
+        '204':
+          description: Cart deleted
+  /checkout/cart/line-item:
+    post:
+      operationId: addLineItems
+      summary: Add items to the cart
+      description: Adds one or more line items (products, promotions) to the cart.
+      tags:
+      - Cart
+      parameters:
+      - $ref: '#/components/parameters/SwContextToken'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartItems'
+      responses:
+        '200':
+          description: Updated cart
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+    patch:
+      operationId: updateLineItems
+      summary: Update items in the cart
+      description: Updates quantities or properties of existing line items.
+      tags:
+      - Cart
+      parameters:
+      - $ref: '#/components/parameters/SwContextToken'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartItemsUpdate'
+      responses:
+        '200':
+          description: Updated cart
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+    delete:
+      operationId: removeLineItems
+      summary: Remove items from the cart
+      description: Removes one or more line items by their IDs.
+      tags:
+      - Cart
+      parameters:
+      - $ref: '#/components/parameters/SwContextToken'
+      - name: ids
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: false
+      responses:
+        '200':
+          description: Updated cart
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+components:
+  schemas:
+    LineItem:
+      type: object
+      description: A line item within a cart
+      properties:
+        id:
+          type: string
+        referencedId:
+          type: string
+          description: ID of the referenced product or promotion
+        label:
+          type: string
+        quantity:
+          type: integer
+        type:
+          type: string
+          enum:
+          - product
+          - promotion
+          - credit
+          - custom
+        price:
+          $ref: '#/components/schemas/CalculatedPrice'
+        good:
+          type: boolean
+        removable:
+          type: boolean
+        stackable:
+          type: boolean
+        modified:
+          type: boolean
+    Cart:
+      type: object
+      description: Shopware shopping cart
+      properties:
+        name:
+          type: string
+          description: Cart name (e.g. guest-cart)
+        token:
+          type: string
+          description: Context token identifying the cart and user session
+        price:
+          $ref: '#/components/schemas/CalculatedPrice'
+        lineItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
+          description: All items within the cart
+        errors:
+          type: object
+          description: Cart errors (insufficient stock, invalid addresses, invalid vouchers)
+        deliveries:
+          type: array
+          items:
+            $ref: '#/components/schemas/CartDelivery'
+        transactions:
+          type: array
+          items:
+            type: object
+            properties:
+              paymentMethodId:
+                type: string
+              amount:
+                $ref: '#/components/schemas/CalculatedPrice'
+        modified:
+          type: boolean
+          description: Indicates any changes to the cart
+        customerComment:
+          oneOf:
+          - type: string
+          - type: 'null'
+        affiliateCode:
+          oneOf:
+          - type: string
+          - type: 'null'
+    CalculatedPrice:
+      type: object
+      properties:
+        unitPrice:
+          type: number
+          format: float
+        totalPrice:
+          type: number
+          format: float
+        quantity:
+          type: integer
+        calculatedTaxes:
+          type: array
+          items:
+            type: object
+            properties:
+              tax:
+                type: number
+              taxRate:
+                type: number
+              price:
+                type: number
+        taxRules:
+          type: array
+          items:
+            type: object
+    CartItems:
+      type: object
+      required:
+      - items
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            required:
+            - id
+            - referencedId
+            - type
+            - quantity
+            properties:
+              id:
+                type: string
+              referencedId:
+                type: string
+              type:
+                type: string
+                enum:
+                - product
+                - promotion
+              quantity:
+                type: integer
+                minimum: 1
+    CartDelivery:
+      type: object
+      properties:
+        trackingCodes:
+          type: array
+          items:
+            type: string
+        location:
+          type: object
+        deliveryDate:
+          type: object
+        shippingMethod:
+          type: object
+        shippingOrderAddress:
+          type: object
+        positions:
+          type: array
+          items:
+            type: object
+    CartItemsUpdate:
+      type: object
+      required:
+      - items
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            required:
+            - id
+            - quantity
+            properties:
+              id:
+                type: string
+              quantity:
+                type: integer
+                minimum: 1
+  parameters:
+    SwContextToken:
+      name: sw-context-token
+      in: header
+      description: Customer session context token
+      schema:
+        type: string
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: /api/oauth/token
+          scopes:
+            write:all: Full write access to all Admin API resources
+        password:
+          tokenUrl: /api/oauth/token
+          scopes:
+            write:all: Full write access to all Admin API resources
+externalDocs:
+  description: Full interactive specification (Stoplight)
+  url: https://shopware.stoplight.io/docs/admin-api

@@ -1,0 +1,120 @@
+openapi: 3.1.0
+info:
+  title: Shopware Admin Account Navigation API
+  version: 6.7.9999999-dev
+  description: The Shopware Admin API provides programmatic access to all back-office and administrative operations including product management, order processing, customer data, indexing, and configuration. It uses OAuth 2.0 authentication and covers 658 endpoints across the full Shopware data model.
+  contact:
+    name: Shopware Developer Documentation
+    url: https://developer.shopware.com/docs/concepts/api/admin-api.html
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://{shopDomain}/api
+  description: Self-hosted or SaaS Shopware instance Admin API
+  variables:
+    shopDomain:
+      default: your-shop.example.com
+      description: Hostname of the Shopware instance
+security:
+- oAuth2:
+  - write:all
+tags:
+- name: Navigation
+  description: Fetch storefront navigation menus
+paths:
+  /navigation/{activeId}/{rootId}:
+    post:
+      operationId: getNavigation
+      summary: Fetch navigation menu
+      description: Returns a navigation category tree starting from a given root.
+      tags:
+      - Navigation
+      parameters:
+      - name: activeId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ID of the currently active navigation node
+      - name: rootId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ID of the root navigation node
+      - $ref: '#/components/parameters/SwContextToken'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoreCriteria'
+      responses:
+        '200':
+          description: Navigation tree
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NavigationCategory'
+components:
+  schemas:
+    StoreCriteria:
+      type: object
+      properties:
+        page:
+          type: integer
+          default: 1
+        limit:
+          type: integer
+          default: 24
+        filter:
+          type: array
+          items:
+            type: object
+        sort:
+          type: array
+          items:
+            type: object
+        term:
+          type: string
+        includes:
+          type: object
+    NavigationCategory:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        active:
+          type: boolean
+        type:
+          type: string
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/NavigationCategory'
+  parameters:
+    SwContextToken:
+      name: sw-context-token
+      in: header
+      description: Customer session context token
+      schema:
+        type: string
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: /api/oauth/token
+          scopes:
+            write:all: Full write access to all Admin API resources
+        password:
+          tokenUrl: /api/oauth/token
+          scopes:
+            write:all: Full write access to all Admin API resources
+externalDocs:
+  description: Full interactive specification (Stoplight)
+  url: https://shopware.stoplight.io/docs/admin-api

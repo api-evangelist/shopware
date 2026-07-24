@@ -1,0 +1,278 @@
+openapi: 3.1.0
+info:
+  title: Shopware Admin Account Order API
+  version: 6.7.9999999-dev
+  description: The Shopware Admin API provides programmatic access to all back-office and administrative operations including product management, order processing, customer data, indexing, and configuration. It uses OAuth 2.0 authentication and covers 658 endpoints across the full Shopware data model.
+  contact:
+    name: Shopware Developer Documentation
+    url: https://developer.shopware.com/docs/concepts/api/admin-api.html
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://{shopDomain}/api
+  description: Self-hosted or SaaS Shopware instance Admin API
+  variables:
+    shopDomain:
+      default: your-shop.example.com
+      description: Hostname of the Shopware instance
+security:
+- oAuth2:
+  - write:all
+tags:
+- name: Order
+  description: Access and manage orders and their line items
+paths:
+  /order:
+    get:
+      operationId: listOrders
+      summary: List orders
+      description: Returns a paginated list of orders.
+      tags:
+      - Order
+      parameters:
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/page'
+      responses:
+        '200':
+          description: Paginated list of orders
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /order/{id}:
+    get:
+      operationId: getOrder
+      summary: Get an order
+      description: Returns a single order by ID.
+      tags:
+      - Order
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^[0-9a-f]{32}$
+      responses:
+        '200':
+          description: Order detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /checkout/order:
+    post:
+      operationId: createOrder
+      summary: Create order from cart
+      description: Converts the current cart into an order.
+      tags:
+      - Order
+      parameters:
+      - $ref: '#/components/parameters/SwContextToken'
+      responses:
+        '200':
+          description: Order created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order_2'
+        '400':
+          description: Validation error (e.g. insufficient stock)
+  /account/order:
+    get:
+      operationId: listCustomerOrders
+      summary: List customer orders
+      description: Returns order history for the currently authenticated customer.
+      tags:
+      - Order
+      parameters:
+      - $ref: '#/components/parameters/SwContextToken'
+      responses:
+        '200':
+          description: List of orders
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderListResponse_2'
+components:
+  schemas:
+    OrderResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Order'
+    Order_2:
+      type: object
+      properties:
+        id:
+          type: string
+        orderNumber:
+          type: string
+        orderDateTime:
+          type: string
+          format: date-time
+        amountTotal:
+          type: number
+          format: float
+        amountNet:
+          type: number
+          format: float
+        lineItems:
+          type: array
+          items:
+            type: object
+        stateMachineState:
+          type: object
+          properties:
+            name:
+              type: string
+            technicalName:
+              type: string
+        billingAddress:
+          type: object
+    OrderListResponse_2:
+      type: object
+      properties:
+        total:
+          type: integer
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order_2'
+    Order:
+      type: object
+      description: Shopware order entity (since version 6.0.0.0)
+      required:
+      - id
+      - billingAddressId
+      - currencyId
+      - languageId
+      - salesChannelId
+      - orderDateTime
+      - currencyFactor
+      - stateId
+      - itemRounding
+      - totalRounding
+      properties:
+        id:
+          type: string
+          pattern: ^[0-9a-f]{32}$
+          description: Unique identity of order
+        orderNumber:
+          type: string
+          description: Unique number associated with every order
+        billingAddressId:
+          type: string
+          pattern: ^[0-9a-f]{32}$
+        currencyId:
+          type: string
+          pattern: ^[0-9a-f]{32}$
+        salesChannelId:
+          type: string
+          pattern: ^[0-9a-f]{32}$
+        orderDateTime:
+          type: string
+          format: date-time
+        amountTotal:
+          type: number
+          format: float
+          description: Total order amount including tax
+        amountNet:
+          type: number
+          format: float
+          description: Net order amount
+        positionPrice:
+          type: number
+          format: float
+        stateId:
+          type: string
+          pattern: ^[0-9a-f]{32}$
+          description: Current workflow state ID
+        createdAt:
+          type: string
+          format: date-time
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          readOnly: true
+    ErrorResponse:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+              status:
+                type: string
+              title:
+                type: string
+              detail:
+                type: string
+    OrderListResponse:
+      type: object
+      properties:
+        total:
+          type: integer
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  parameters:
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of resources per page (default 25)
+      schema:
+        type: integer
+        default: 25
+        maximum: 500
+    page:
+      name: page
+      in: query
+      description: Page number (1-based)
+      schema:
+        type: integer
+        default: 1
+    SwContextToken:
+      name: sw-context-token
+      in: header
+      description: Customer session context token
+      schema:
+        type: string
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: /api/oauth/token
+          scopes:
+            write:all: Full write access to all Admin API resources
+        password:
+          tokenUrl: /api/oauth/token
+          scopes:
+            write:all: Full write access to all Admin API resources
+externalDocs:
+  description: Full interactive specification (Stoplight)
+  url: https://shopware.stoplight.io/docs/admin-api

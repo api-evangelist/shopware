@@ -1,0 +1,228 @@
+openapi: 3.1.0
+info:
+  title: Shopware Admin Account API
+  version: 6.7.9999999-dev
+  description: The Shopware Admin API provides programmatic access to all back-office and administrative operations including product management, order processing, customer data, indexing, and configuration. It uses OAuth 2.0 authentication and covers 658 endpoints across the full Shopware data model.
+  contact:
+    name: Shopware Developer Documentation
+    url: https://developer.shopware.com/docs/concepts/api/admin-api.html
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://{shopDomain}/api
+  description: Self-hosted or SaaS Shopware instance Admin API
+  variables:
+    shopDomain:
+      default: your-shop.example.com
+      description: Hostname of the Shopware instance
+security:
+- oAuth2:
+  - write:all
+tags:
+- name: Account
+  description: Customer registration, login and profile management
+paths:
+  /account/login:
+    post:
+      operationId: loginCustomer
+      summary: Log in a customer
+      description: Authenticates a customer and returns an updated context token.
+      tags:
+      - Account
+      parameters:
+      - $ref: '#/components/parameters/SwContextToken'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - username
+              - password
+              properties:
+                username:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  format: password
+      responses:
+        '200':
+          description: Login successful; new context token returned in header
+          headers:
+            sw-context-token:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  contextToken:
+                    type: string
+        '401':
+          description: Invalid credentials
+  /account/logout:
+    post:
+      operationId: logoutCustomer
+      summary: Log out a customer
+      description: Ends the customer session and invalidates the context token.
+      tags:
+      - Account
+      parameters:
+      - $ref: '#/components/parameters/SwContextToken'
+      responses:
+        '200':
+          description: Logout successful
+  /account/register:
+    post:
+      operationId: registerCustomer
+      summary: Register a customer
+      description: Creates a new customer account.
+      tags:
+      - Account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerRegistration'
+      responses:
+        '200':
+          description: Registration successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+  /account/order:
+    get:
+      operationId: listCustomerOrders
+      summary: List customer orders
+      description: Returns order history for the currently authenticated customer.
+      tags:
+      - Account
+      parameters:
+      - $ref: '#/components/parameters/SwContextToken'
+      responses:
+        '200':
+          description: List of orders
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderListResponse'
+components:
+  schemas:
+    Customer:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+          format: email
+        firstName:
+          type: string
+        lastName:
+          type: string
+        customerNumber:
+          type: string
+    Order:
+      type: object
+      properties:
+        id:
+          type: string
+        orderNumber:
+          type: string
+        orderDateTime:
+          type: string
+          format: date-time
+        amountTotal:
+          type: number
+          format: float
+        amountNet:
+          type: number
+          format: float
+        lineItems:
+          type: array
+          items:
+            type: object
+        stateMachineState:
+          type: object
+          properties:
+            name:
+              type: string
+            technicalName:
+              type: string
+        billingAddress:
+          type: object
+    CustomerRegistration:
+      type: object
+      required:
+      - email
+      - password
+      - firstName
+      - lastName
+      - salutationId
+      - billingAddress
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          format: password
+        firstName:
+          type: string
+        lastName:
+          type: string
+        salutationId:
+          type: string
+        billingAddress:
+          type: object
+          required:
+          - street
+          - zipcode
+          - city
+          - countryId
+          properties:
+            street:
+              type: string
+            zipcode:
+              type: string
+            city:
+              type: string
+            countryId:
+              type: string
+    OrderListResponse:
+      type: object
+      properties:
+        total:
+          type: integer
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+  parameters:
+    SwContextToken:
+      name: sw-context-token
+      in: header
+      description: Customer session context token
+      schema:
+        type: string
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: /api/oauth/token
+          scopes:
+            write:all: Full write access to all Admin API resources
+        password:
+          tokenUrl: /api/oauth/token
+          scopes:
+            write:all: Full write access to all Admin API resources
+externalDocs:
+  description: Full interactive specification (Stoplight)
+  url: https://shopware.stoplight.io/docs/admin-api
