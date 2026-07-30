@@ -11,7 +11,20 @@ description: >-
   (MIT-licensed), and as paid SaaS and self-hosted tiers (Rise, Evolve, Beyond)
   unlocking additional commerce capabilities.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/shopware.png
 tags:
   - E-Commerce
   - Open Source
@@ -25,51 +38,146 @@ created: '2026-06-12'
 modified: '2026-06-12'
 specificationVersion: '0.19'
 apis:
-  - aid: shopware:admin-api
-    name: Shopware Admin API
-    description: >-
-      The Admin API provides programmatic access to all back-office and
-      administrative operations in Shopware 6, including product management,
-      order processing, customer data, indexing, and configuration. It uses
-      OAuth 2.0 authentication and publishes an OpenAPI 3 specification at
-      /api/_info/openapi3.json on every running instance.
-    humanURL: https://shopware.stoplight.io/docs/admin-api
-    baseURL: https://{your-shop-domain}/api
-    tags:
-      - Admin
-      - E-Commerce
-      - OAuth2
-      - REST
-    properties:
-      - type: Documentation
-        url: https://shopware.stoplight.io/docs/admin-api
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/shopware/admin-api-reference/main/adminapi.json
-      - type: OpenAPI
-        url: openapi/shopware-admin-api-openapi.yml
-  - aid: shopware:store-api
-    name: Shopware Store API
-    description: >-
-      The Store API is the customer-facing API for Shopware 6, designed for
-      building headless storefronts and progressive web apps. It exposes
-      endpoints for product catalog browsing, cart management, checkout,
-      customer authentication, and order history. The API is publicly
-      accessible for catalog data and requires contextual headers for
-      customer-specific operations.
-    humanURL: https://shopware.stoplight.io/docs/store-api
-    baseURL: https://{your-shop-domain}/store-api
-    tags:
-      - Storefront
-      - Headless Commerce
-      - REST
-      - E-Commerce
-    properties:
-      - type: Documentation
-        url: https://shopware.stoplight.io/docs/store-api
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/shopware/store-api-reference/main/storeapi.json
-      - type: OpenAPI
-        url: openapi/shopware-store-api-openapi.yml
+- aid: shopware:shopware-account-api
+  name: Shopware Account API
+  description: Customer registration, login and profile management
+  humanURL: https://shopware.stoplight.io/docs/admin-api
+  baseURL: https://{your-shop-domain}/api
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/shopware-account-api-openapi.yml
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/admin-api
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/store-api
+- aid: shopware:shopware-bulk-api
+  name: Shopware Bulk API
+  description: High-throughput bulk upsert and delete operations
+  humanURL: https://shopware.stoplight.io/docs/admin-api
+  baseURL: https://{your-shop-domain}/api
+  tags:
+  - Bulk
+  properties:
+  - type: OpenAPI
+    url: openapi/shopware-bulk-api-openapi.yml
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/admin-api
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/store-api
+- aid: shopware:shopware-cart-api
+  name: Shopware Cart API
+  description: Manage the shopping cart and its line items
+  humanURL: https://shopware.stoplight.io/docs/admin-api
+  baseURL: https://{your-shop-domain}/api
+  tags:
+  - Cart
+  properties:
+  - type: OpenAPI
+    url: openapi/shopware-cart-api-openapi.yml
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/admin-api
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/store-api
+- aid: shopware:shopware-category-api
+  name: Shopware Category API
+  description: Manage the product category tree
+  humanURL: https://shopware.stoplight.io/docs/admin-api
+  baseURL: https://{your-shop-domain}/api
+  tags:
+  - Category
+  properties:
+  - type: OpenAPI
+    url: openapi/shopware-category-api-openapi.yml
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/admin-api
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/store-api
+- aid: shopware:shopware-checkout-api
+  name: Shopware Checkout API
+  description: Complete the purchase workflow
+  humanURL: https://shopware.stoplight.io/docs/admin-api
+  baseURL: https://{your-shop-domain}/api
+  tags:
+  - Checkout
+  properties:
+  - type: OpenAPI
+    url: openapi/shopware-checkout-api-openapi.yml
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/admin-api
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/store-api
+- aid: shopware:shopware-customer-api
+  name: Shopware Customer API
+  description: Manage customer accounts and addresses
+  humanURL: https://shopware.stoplight.io/docs/admin-api
+  baseURL: https://{your-shop-domain}/api
+  tags:
+  - Customer
+  properties:
+  - type: OpenAPI
+    url: openapi/shopware-customer-api-openapi.yml
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/admin-api
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/store-api
+- aid: shopware:shopware-navigation-api
+  name: Shopware Navigation API
+  description: Fetch storefront navigation menus
+  humanURL: https://shopware.stoplight.io/docs/admin-api
+  baseURL: https://{your-shop-domain}/api
+  tags:
+  - Navigation
+  properties:
+  - type: OpenAPI
+    url: openapi/shopware-navigation-api-openapi.yml
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/admin-api
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/store-api
+- aid: shopware:shopware-order-api
+  name: Shopware Order API
+  description: Access and manage orders and their line items
+  humanURL: https://shopware.stoplight.io/docs/admin-api
+  baseURL: https://{your-shop-domain}/api
+  tags:
+  - Order
+  properties:
+  - type: OpenAPI
+    url: openapi/shopware-order-api-openapi.yml
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/admin-api
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/store-api
+- aid: shopware:shopware-product-api
+  name: Shopware Product API
+  description: Create, read, update, and delete products and variants
+  humanURL: https://shopware.stoplight.io/docs/admin-api
+  baseURL: https://{your-shop-domain}/api
+  tags:
+  - Product
+  properties:
+  - type: OpenAPI
+    url: openapi/shopware-product-api-openapi.yml
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/admin-api
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/store-api
+- aid: shopware:shopware-search-api
+  name: Shopware Search API
+  description: DAL-powered search with filter, sort, and aggregation
+  humanURL: https://shopware.stoplight.io/docs/admin-api
+  baseURL: https://{your-shop-domain}/api
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/shopware-search-api-openapi.yml
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/admin-api
+  - type: Documentation
+    url: https://shopware.stoplight.io/docs/store-api
 common:
   - type: AgenticAccess
     url: agentic-access/shopware-agentic-access.yml
