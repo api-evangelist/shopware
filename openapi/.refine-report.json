@@ -1,0 +1,32 @@
+{
+  "provider": "shopware",
+  "sources": [
+    "shopware-account-api-openapi.yml",
+    "shopware-bulk-api-openapi.yml",
+    "shopware-cart-api-openapi.yml",
+    "shopware-category-api-openapi.yml",
+    "shopware-checkout-api-openapi.yml",
+    "shopware-customer-api-openapi.yml",
+    "shopware-navigation-api-openapi.yml",
+    "shopware-order-api-openapi.yml",
+    "shopware-product-api-openapi.yml",
+    "shopware-search-api-openapi.yml"
+  ],
+  "outputs": [
+    "shopware-account-api-openapi.yml",
+    "shopware-bulk-api-openapi.yml",
+    "shopware-cart-api-openapi.yml",
+    "shopware-category-api-openapi.yml",
+    "shopware-checkout-api-openapi.yml",
+    "shopware-customer-api-openapi.yml",
+    "shopware-navigation-api-openapi.yml",
+    "shopware-order-api-openapi.yml",
+    "shopware-product-api-openapi.yml",
+    "shopware-search-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
