@@ -1,0 +1,129 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shopware Admin Account Cart API",
+    "version": "6.7.9999999-dev"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/api/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cart",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch or create a cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{shopDomain}/api/checkout/cart",
+            "headers": [
+              {
+                "name": "sw-context-token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns the current active cart for the customer session. Creates a new cart if none exists."
+        },
+        {
+          "info": {
+            "name": "Delete a cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{shopDomain}/api/checkout/cart",
+            "headers": [
+              {
+                "name": "sw-context-token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Removes the current cart for the customer session."
+        },
+        {
+          "info": {
+            "name": "Add items to the cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{shopDomain}/api/checkout/cart/line-item",
+            "headers": [
+              {
+                "name": "sw-context-token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds one or more line items (products, promotions) to the cart."
+        },
+        {
+          "info": {
+            "name": "Update items in the cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{shopDomain}/api/checkout/cart/line-item",
+            "headers": [
+              {
+                "name": "sw-context-token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates quantities or properties of existing line items."
+        },
+        {
+          "info": {
+            "name": "Remove items from the cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{shopDomain}/api/checkout/cart/line-item",
+            "headers": [
+              {
+                "name": "sw-context-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Removes one or more line items by their IDs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

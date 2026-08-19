@@ -1,0 +1,1278 @@
+{
+  "item": [
+    {
+      "id": "e4616dc2-c6e2-4117-a2ea-d8b96c5b4ca3",
+      "name": "Product",
+      "description": {
+        "content": "Create, read, update, and delete products and variants",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "42ea8b64-3964-4bb0-8b2d-9f1f5081bebc",
+          "name": "List products",
+          "request": {
+            "name": "List products",
+            "description": {
+              "content": "Returns a paginated list of products with basic information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "product"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Maximum number of resources per page (default 25)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (1-based)"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname of the Shopware instance",
+                  "type": "any",
+                  "value": "{{shopDomain}}",
+                  "key": "shopDomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "48a9545d-991a-41a8-870f-77e4b8d85bbf",
+              "name": "Paginated list of products",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 4504,\n  \"data\": [\n    {\n      \"id\": \"f9684a24248b75cdb3cf0832d36b3bfc\",\n      \"taxId\": \"8f7091caec9630616b94fc21ebd1db86\",\n      \"price\": [\n        {\n          \"currencyId\": \"2d82a0ed9612f355b85560e5c5342cc8\",\n          \"gross\": 4465.4009388781715,\n          \"net\": 6365.292314666815,\n          \"linked\": true,\n          \"listPrice\": {\n            \"gross\": 2316.538151478519,\n            \"net\": 1403.5439311273424,\n            \"linked\": true\n          }\n        },\n        {\n          \"currencyId\": \"3b697af16a7966de8c5ce10a9e924505\",\n          \"gross\": 6047.108680333085,\n          \"net\": 8169.514653702096,\n          \"linked\": true,\n          \"listPrice\": {\n            \"gross\": 7571.943973034478,\n            \"net\": 7006.687676648532,\n            \"linked\": true\n          }\n        }\n      ],\n      \"productNumber\": \"string\",\n      \"stock\": 1769,\n      \"name\": \"string\",\n      \"versionId\": \"9bba9d745168e33152c7a655f2f755ff\",\n      \"parentId\": \"c0854b96da20b8e5cecf255a11c4959d\",\n      \"manufacturerId\": \"0988640248c42faed23b6b0b67a1eaf9\",\n      \"description\": \"string\",\n      \"active\": false,\n      \"ean\": \"string\",\n      \"markAsTopseller\": true,\n      \"weight\": 3151.110756460822,\n      \"width\": 1795.9694636041268,\n      \"height\": 527.194058374697,\n      \"length\": 9847.161215916256,\n      \"isCloseout\": false,\n      \"createdAt\": \"2016-01-13T15:35:48.541Z\",\n      \"updatedAt\": \"1957-01-14T13:31:51.889Z\"\n    },\n    {\n      \"id\": \"40e4a7b3811af779f19e5b75ecd5576f\",\n      \"taxId\": \"0da27a6380f202edcc7b3ad4fa780828\",\n      \"price\": [\n        {\n          \"currencyId\": \"b8bc8ae2513312cf08b617c7648dea8b\",\n          \"gross\": 6924.571511989744,\n          \"net\": 1682.576793383982,\n          \"linked\": true,\n          \"listPrice\": {\n            \"gross\": 4195.088457791073,\n            \"net\": 2154.3169382310634,\n            \"linked\": true\n          }\n        },\n        {\n          \"currencyId\": \"66f6da22266bc67a8107ee8f03d244a4\",\n          \"gross\": 7929.109969985349,\n          \"net\": 7628.112626536815,\n          \"linked\": false,\n          \"listPrice\": {\n            \"gross\": 7701.366792543479,\n            \"net\": 9679.040316425246,\n            \"linked\": false\n          }\n        }\n      ],\n      \"productNumber\": \"string\",\n      \"stock\": 9772,\n      \"name\": \"string\",\n      \"versionId\": \"0ab338e8369fba4208dd40297db5acdc\",\n      \"parentId\": \"4be897c336e3db44d9c66a716700a0cf\",\n      \"manufacturerId\": \"2683de869c484b27896dadc2f97db220\",\n      \"description\": \"string\",\n      \"active\": false,\n      \"ean\": \"string\",\n      \"markAsTopseller\": true,\n      \"weight\": 5592.84805158027,\n      \"width\": 461.0046656624467,\n      \"height\": 6463.060521609568,\n      \"length\": 4312.858900762592,\n      \"isCloseout\": false,\n      \"createdAt\": \"1983-03-10T16:08:23.730Z\",\n      \"updatedAt\": \"1957-07-30T11:05:24.226Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e1450c4-b1c2-4978-bb10-86c4231e5327",
+              "name": "Authentication required or token expired",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "791ea1e9-fe44-4354-aad5-11d6029315a5",
+          "name": "Create a product",
+          "request": {
+            "name": "Create a product",
+            "description": {
+              "content": "Creates a new product resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "product"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the Shopware instance",
+                  "type": "any",
+                  "value": "{{shopDomain}}",
+                  "key": "shopDomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"taxId\": \"<string>\",\n  \"price\": [\n    {\n      \"currencyId\": \"<string>\",\n      \"gross\": \"<float>\",\n      \"net\": \"<float>\",\n      \"linked\": \"<boolean>\",\n      \"listPrice\": {\n        \"gross\": \"<float>\",\n        \"net\": \"<float>\",\n        \"linked\": \"<boolean>\"\n      }\n    },\n    {\n      \"currencyId\": \"<string>\",\n      \"gross\": \"<float>\",\n      \"net\": \"<float>\",\n      \"linked\": \"<boolean>\",\n      \"listPrice\": {\n        \"gross\": \"<float>\",\n        \"net\": \"<float>\",\n        \"linked\": \"<boolean>\"\n      }\n    }\n  ],\n  \"productNumber\": \"<string>\",\n  \"stock\": \"<long>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "98005a86-6ff6-4d27-bcd5-26de71aa477b",
+              "name": "Product created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"taxId\": \"<string>\",\n  \"price\": [\n    {\n      \"currencyId\": \"407b2bda4027216e64e8acc5c8eb0a16\",\n      \"gross\": 5091.589177739637,\n      \"net\": 3520.6857664326153,\n      \"linked\": true,\n      \"listPrice\": {\n        \"gross\": 2628.3065400468777,\n        \"net\": 7701.849772488758,\n        \"linked\": false\n      }\n    },\n    {\n      \"currencyId\": \"a7ac4c5f4896aecf5330a2a485c45b78\",\n      \"gross\": 8473.882091988038,\n      \"net\": 2933.0341700421336,\n      \"linked\": false,\n      \"listPrice\": {\n        \"gross\": 6707.408792401922,\n        \"net\": 2094.335224163695,\n        \"linked\": true\n      }\n    }\n  ],\n  \"productNumber\": \"<string>\",\n  \"stock\": \"<long>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"active\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"9d1199da7f8b670671737adc37fc5637\",\n    \"taxId\": \"f8970cc45ad1bd0e0fda0b5ef4710d20\",\n    \"price\": [\n      {\n        \"currencyId\": \"88f6dd81cfde03fe93310cb11cbf15aa\",\n        \"gross\": 4994.969846233459,\n        \"net\": 8168.003800884754,\n        \"linked\": false,\n        \"listPrice\": {\n          \"gross\": 3079.003469018078,\n          \"net\": 4826.931185978056,\n          \"linked\": true\n        }\n      },\n      {\n        \"currencyId\": \"6ac6afbf2b1c67c297a2b0724cacbd07\",\n        \"gross\": 4263.435971579434,\n        \"net\": 1159.1239781374086,\n        \"linked\": false,\n        \"listPrice\": {\n          \"gross\": 424.28377389987725,\n          \"net\": 3332.550005896423,\n          \"linked\": false\n        }\n      }\n    ],\n    \"productNumber\": \"string\",\n    \"stock\": 6315,\n    \"name\": \"string\",\n    \"versionId\": \"8891129b2e8559a7008d38c8830ed15d\",\n    \"parentId\": \"f6df8ba6897a10de23932e9051f2350d\",\n    \"manufacturerId\": \"87878b43d1e8296aabd015e4e276c846\",\n    \"description\": \"string\",\n    \"active\": false,\n    \"ean\": \"string\",\n    \"markAsTopseller\": true,\n    \"weight\": 5650.229661498946,\n    \"width\": 7633.417032171663,\n    \"height\": 8117.884088711815,\n    \"length\": 5640.095879994561,\n    \"isCloseout\": false,\n    \"createdAt\": \"2003-08-19T19:51:20.260Z\",\n    \"updatedAt\": \"1964-07-04T19:18:59.928Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6edcf49e-b74b-4cbe-8976-f5c294c1b91a",
+              "name": "Validation errors in the request body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"taxId\": \"<string>\",\n  \"price\": [\n    {\n      \"currencyId\": \"407b2bda4027216e64e8acc5c8eb0a16\",\n      \"gross\": 5091.589177739637,\n      \"net\": 3520.6857664326153,\n      \"linked\": true,\n      \"listPrice\": {\n        \"gross\": 2628.3065400468777,\n        \"net\": 7701.849772488758,\n        \"linked\": false\n      }\n    },\n    {\n      \"currencyId\": \"a7ac4c5f4896aecf5330a2a485c45b78\",\n      \"gross\": 8473.882091988038,\n      \"net\": 2933.0341700421336,\n      \"linked\": false,\n      \"listPrice\": {\n        \"gross\": 6707.408792401922,\n        \"net\": 2094.335224163695,\n        \"linked\": true\n      }\n    }\n  ],\n  \"productNumber\": \"<string>\",\n  \"stock\": \"<long>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"active\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09375aa7-343e-4553-a3af-635ff053f249",
+              "name": "Authentication required or token expired",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"taxId\": \"<string>\",\n  \"price\": [\n    {\n      \"currencyId\": \"407b2bda4027216e64e8acc5c8eb0a16\",\n      \"gross\": 5091.589177739637,\n      \"net\": 3520.6857664326153,\n      \"linked\": true,\n      \"listPrice\": {\n        \"gross\": 2628.3065400468777,\n        \"net\": 7701.849772488758,\n        \"linked\": false\n      }\n    },\n    {\n      \"currencyId\": \"a7ac4c5f4896aecf5330a2a485c45b78\",\n      \"gross\": 8473.882091988038,\n      \"net\": 2933.0341700421336,\n      \"linked\": false,\n      \"listPrice\": {\n        \"gross\": 6707.408792401922,\n        \"net\": 2094.335224163695,\n        \"linked\": true\n      }\n    }\n  ],\n  \"productNumber\": \"<string>\",\n  \"stock\": \"<long>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"active\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f7286786-f2ad-42f5-8762-8376e2b7a5cf",
+          "name": "Get a product",
+          "request": {
+            "name": "Get a product",
+            "description": {
+              "content": "Returns a single product by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "product",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) 32-character hex product ID"
+                },
+                {
+                  "description": "Hostname of the Shopware instance",
+                  "type": "any",
+                  "value": "{{shopDomain}}",
+                  "key": "shopDomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1aed2d89-05bc-4077-a403-2d3a661a7718",
+              "name": "Product detail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) 32-character hex product ID"
+                    },
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"9d1199da7f8b670671737adc37fc5637\",\n    \"taxId\": \"f8970cc45ad1bd0e0fda0b5ef4710d20\",\n    \"price\": [\n      {\n        \"currencyId\": \"88f6dd81cfde03fe93310cb11cbf15aa\",\n        \"gross\": 4994.969846233459,\n        \"net\": 8168.003800884754,\n        \"linked\": false,\n        \"listPrice\": {\n          \"gross\": 3079.003469018078,\n          \"net\": 4826.931185978056,\n          \"linked\": true\n        }\n      },\n      {\n        \"currencyId\": \"6ac6afbf2b1c67c297a2b0724cacbd07\",\n        \"gross\": 4263.435971579434,\n        \"net\": 1159.1239781374086,\n        \"linked\": false,\n        \"listPrice\": {\n          \"gross\": 424.28377389987725,\n          \"net\": 3332.550005896423,\n          \"linked\": false\n        }\n      }\n    ],\n    \"productNumber\": \"string\",\n    \"stock\": 6315,\n    \"name\": \"string\",\n    \"versionId\": \"8891129b2e8559a7008d38c8830ed15d\",\n    \"parentId\": \"f6df8ba6897a10de23932e9051f2350d\",\n    \"manufacturerId\": \"87878b43d1e8296aabd015e4e276c846\",\n    \"description\": \"string\",\n    \"active\": false,\n    \"ean\": \"string\",\n    \"markAsTopseller\": true,\n    \"weight\": 5650.229661498946,\n    \"width\": 7633.417032171663,\n    \"height\": 8117.884088711815,\n    \"length\": 5640.095879994561,\n    \"isCloseout\": false,\n    \"createdAt\": \"2003-08-19T19:51:20.260Z\",\n    \"updatedAt\": \"1964-07-04T19:18:59.928Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62b53150-bc28-439a-87d9-bd75d56b78ff",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) 32-character hex product ID"
+                    },
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86886bb5-8381-445f-b249-8732ae07ecbc",
+          "name": "Update a product",
+          "request": {
+            "name": "Update a product",
+            "description": {
+              "content": "Partially updates a product resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "product",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Hostname of the Shopware instance",
+                  "type": "any",
+                  "value": "{{shopDomain}}",
+                  "key": "shopDomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"taxId\": \"<string>\",\n  \"price\": [\n    {\n      \"currencyId\": \"<string>\",\n      \"gross\": \"<float>\",\n      \"net\": \"<float>\",\n      \"linked\": \"<boolean>\",\n      \"listPrice\": {\n        \"gross\": \"<float>\",\n        \"net\": \"<float>\",\n        \"linked\": \"<boolean>\"\n      }\n    },\n    {\n      \"currencyId\": \"<string>\",\n      \"gross\": \"<float>\",\n      \"net\": \"<float>\",\n      \"linked\": \"<boolean>\",\n      \"listPrice\": {\n        \"gross\": \"<float>\",\n        \"net\": \"<float>\",\n        \"linked\": \"<boolean>\"\n      }\n    }\n  ],\n  \"productNumber\": \"<string>\",\n  \"stock\": \"<long>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "290a7054-0257-4ce2-92e2-0b966a971c39",
+              "name": "Product updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"taxId\": \"<string>\",\n  \"price\": [\n    {\n      \"currencyId\": \"407b2bda4027216e64e8acc5c8eb0a16\",\n      \"gross\": 5091.589177739637,\n      \"net\": 3520.6857664326153,\n      \"linked\": true,\n      \"listPrice\": {\n        \"gross\": 2628.3065400468777,\n        \"net\": 7701.849772488758,\n        \"linked\": false\n      }\n    },\n    {\n      \"currencyId\": \"a7ac4c5f4896aecf5330a2a485c45b78\",\n      \"gross\": 8473.882091988038,\n      \"net\": 2933.0341700421336,\n      \"linked\": false,\n      \"listPrice\": {\n        \"gross\": 6707.408792401922,\n        \"net\": 2094.335224163695,\n        \"linked\": true\n      }\n    }\n  ],\n  \"productNumber\": \"<string>\",\n  \"stock\": \"<long>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"active\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"9d1199da7f8b670671737adc37fc5637\",\n    \"taxId\": \"f8970cc45ad1bd0e0fda0b5ef4710d20\",\n    \"price\": [\n      {\n        \"currencyId\": \"88f6dd81cfde03fe93310cb11cbf15aa\",\n        \"gross\": 4994.969846233459,\n        \"net\": 8168.003800884754,\n        \"linked\": false,\n        \"listPrice\": {\n          \"gross\": 3079.003469018078,\n          \"net\": 4826.931185978056,\n          \"linked\": true\n        }\n      },\n      {\n        \"currencyId\": \"6ac6afbf2b1c67c297a2b0724cacbd07\",\n        \"gross\": 4263.435971579434,\n        \"net\": 1159.1239781374086,\n        \"linked\": false,\n        \"listPrice\": {\n          \"gross\": 424.28377389987725,\n          \"net\": 3332.550005896423,\n          \"linked\": false\n        }\n      }\n    ],\n    \"productNumber\": \"string\",\n    \"stock\": 6315,\n    \"name\": \"string\",\n    \"versionId\": \"8891129b2e8559a7008d38c8830ed15d\",\n    \"parentId\": \"f6df8ba6897a10de23932e9051f2350d\",\n    \"manufacturerId\": \"87878b43d1e8296aabd015e4e276c846\",\n    \"description\": \"string\",\n    \"active\": false,\n    \"ean\": \"string\",\n    \"markAsTopseller\": true,\n    \"weight\": 5650.229661498946,\n    \"width\": 7633.417032171663,\n    \"height\": 8117.884088711815,\n    \"length\": 5640.095879994561,\n    \"isCloseout\": false,\n    \"createdAt\": \"2003-08-19T19:51:20.260Z\",\n    \"updatedAt\": \"1964-07-04T19:18:59.928Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "982361d8-636b-4886-8074-a46c26ca6041",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"taxId\": \"<string>\",\n  \"price\": [\n    {\n      \"currencyId\": \"407b2bda4027216e64e8acc5c8eb0a16\",\n      \"gross\": 5091.589177739637,\n      \"net\": 3520.6857664326153,\n      \"linked\": true,\n      \"listPrice\": {\n        \"gross\": 2628.3065400468777,\n        \"net\": 7701.849772488758,\n        \"linked\": false\n      }\n    },\n    {\n      \"currencyId\": \"a7ac4c5f4896aecf5330a2a485c45b78\",\n      \"gross\": 8473.882091988038,\n      \"net\": 2933.0341700421336,\n      \"linked\": false,\n      \"listPrice\": {\n        \"gross\": 6707.408792401922,\n        \"net\": 2094.335224163695,\n        \"linked\": true\n      }\n    }\n  ],\n  \"productNumber\": \"<string>\",\n  \"stock\": \"<long>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"active\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82e8a321-154f-40c7-b5a8-add88316fe4c",
+          "name": "Delete a product",
+          "request": {
+            "name": "Delete a product",
+            "description": {
+              "content": "Deletes a product by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "product",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Hostname of the Shopware instance",
+                  "type": "any",
+                  "value": "{{shopDomain}}",
+                  "key": "shopDomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "837263bc-9953-4eda-93af-2145dd1d0f7e",
+              "name": "Product deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "103938d8-55c9-42a7-ba82-ec22becd855b",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb96e4df-d892-4bea-bb84-6aa71ff9ec08",
+          "name": "Search products",
+          "request": {
+            "name": "Search products",
+            "description": {
+              "content": "Full-featured product search with filter, sort, aggregation support.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "product"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the Shopware instance",
+                  "type": "any",
+                  "value": "{{shopDomain}}",
+                  "key": "shopDomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"page\": 1,\n  \"limit\": 25,\n  \"filter\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"sort\": [\n    {\n      \"field\": \"<string>\",\n      \"order\": \"<string>\"\n    },\n    {\n      \"field\": \"<string>\",\n      \"order\": \"<string>\"\n    }\n  ],\n  \"aggregations\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"term\": \"<string>\",\n  \"includes\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fee9a039-34b8-4a12-a48c-78b48b51fad4",
+              "name": "Search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"page\": 1,\n  \"limit\": 25,\n  \"filter\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"sort\": [\n    {\n      \"field\": \"<string>\",\n      \"order\": \"<string>\"\n    },\n    {\n      \"field\": \"<string>\",\n      \"order\": \"<string>\"\n    }\n  ],\n  \"aggregations\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"term\": \"<string>\",\n  \"includes\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 4504,\n  \"data\": [\n    {\n      \"id\": \"f9684a24248b75cdb3cf0832d36b3bfc\",\n      \"taxId\": \"8f7091caec9630616b94fc21ebd1db86\",\n      \"price\": [\n        {\n          \"currencyId\": \"2d82a0ed9612f355b85560e5c5342cc8\",\n          \"gross\": 4465.4009388781715,\n          \"net\": 6365.292314666815,\n          \"linked\": true,\n          \"listPrice\": {\n            \"gross\": 2316.538151478519,\n            \"net\": 1403.5439311273424,\n            \"linked\": true\n          }\n        },\n        {\n          \"currencyId\": \"3b697af16a7966de8c5ce10a9e924505\",\n          \"gross\": 6047.108680333085,\n          \"net\": 8169.514653702096,\n          \"linked\": true,\n          \"listPrice\": {\n            \"gross\": 7571.943973034478,\n            \"net\": 7006.687676648532,\n            \"linked\": true\n          }\n        }\n      ],\n      \"productNumber\": \"string\",\n      \"stock\": 1769,\n      \"name\": \"string\",\n      \"versionId\": \"9bba9d745168e33152c7a655f2f755ff\",\n      \"parentId\": \"c0854b96da20b8e5cecf255a11c4959d\",\n      \"manufacturerId\": \"0988640248c42faed23b6b0b67a1eaf9\",\n      \"description\": \"string\",\n      \"active\": false,\n      \"ean\": \"string\",\n      \"markAsTopseller\": true,\n      \"weight\": 3151.110756460822,\n      \"width\": 1795.9694636041268,\n      \"height\": 527.194058374697,\n      \"length\": 9847.161215916256,\n      \"isCloseout\": false,\n      \"createdAt\": \"2016-01-13T15:35:48.541Z\",\n      \"updatedAt\": \"1957-01-14T13:31:51.889Z\"\n    },\n    {\n      \"id\": \"40e4a7b3811af779f19e5b75ecd5576f\",\n      \"taxId\": \"0da27a6380f202edcc7b3ad4fa780828\",\n      \"price\": [\n        {\n          \"currencyId\": \"b8bc8ae2513312cf08b617c7648dea8b\",\n          \"gross\": 6924.571511989744,\n          \"net\": 1682.576793383982,\n          \"linked\": true,\n          \"listPrice\": {\n            \"gross\": 4195.088457791073,\n            \"net\": 2154.3169382310634,\n            \"linked\": true\n          }\n        },\n        {\n          \"currencyId\": \"66f6da22266bc67a8107ee8f03d244a4\",\n          \"gross\": 7929.109969985349,\n          \"net\": 7628.112626536815,\n          \"linked\": false,\n          \"listPrice\": {\n            \"gross\": 7701.366792543479,\n            \"net\": 9679.040316425246,\n            \"linked\": false\n          }\n        }\n      ],\n      \"productNumber\": \"string\",\n      \"stock\": 9772,\n      \"name\": \"string\",\n      \"versionId\": \"0ab338e8369fba4208dd40297db5acdc\",\n      \"parentId\": \"4be897c336e3db44d9c66a716700a0cf\",\n      \"manufacturerId\": \"2683de869c484b27896dadc2f97db220\",\n      \"description\": \"string\",\n      \"active\": false,\n      \"ean\": \"string\",\n      \"markAsTopseller\": true,\n      \"weight\": 5592.84805158027,\n      \"width\": 461.0046656624467,\n      \"height\": 6463.060521609568,\n      \"length\": 4312.858900762592,\n      \"isCloseout\": false,\n      \"createdAt\": \"1983-03-10T16:08:23.730Z\",\n      \"updatedAt\": \"1957-07-30T11:05:24.226Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "201c0bd4-8199-4bd6-b3a8-26b446286c41",
+          "name": "Get a product",
+          "request": {
+            "name": "Get a product",
+            "description": {
+              "content": "Returns a single product by ID including all variants and media.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "product",
+                ":productId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "productId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Hostname of the Shopware instance",
+                  "type": "any",
+                  "value": "{{shopDomain}}",
+                  "key": "shopDomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Customer session context token",
+                "key": "sw-context-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f50e9bae-e399-414d-92b9-c132294f4f4e",
+              "name": "Product detail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":productId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "productId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Customer session context token",
+                    "key": "sw-context-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"product\": {\n    \"id\": \"string\",\n    \"productNumber\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"active\": true,\n    \"cover\": {\n      \"id\": \"string\",\n      \"url\": \"string\"\n    },\n    \"calculatedPrice\": {\n      \"unitPrice\": 9285.482574655269,\n      \"totalPrice\": 3870.354194567035,\n      \"quantity\": 868,\n      \"calculatedTaxes\": [\n        {\n          \"tax\": 2672.918692222518,\n          \"taxRate\": 1878.985952705401,\n          \"price\": 9377.30968625116\n        },\n        {\n          \"tax\": 4820.749544305394,\n          \"taxRate\": 7706.460426027232,\n          \"price\": 9258.353734815937\n        }\n      ]\n    },\n    \"calculatedListingPrice\": {},\n    \"availableStock\": 8842\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77a6c171-4f2c-4136-8c3b-8068a9034b91",
+              "name": "Product not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":productId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "productId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Customer session context token",
+                    "key": "sw-context-token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname of the Shopware instance",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-shop.example.com",
+      "key": "shopDomain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{shopDomain}}/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "write:all"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "/api/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "51bac128-1ca4-437e-9b81-bde218aa0e6f",
+    "name": "Shopware Admin Account Product API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Shopware Admin API provides programmatic access to all back-office and administrative operations including product management, order processing, customer data, indexing, and configuration. It uses OAuth 2.0 authentication and covers 658 endpoints across the full Shopware data model.\n\nContact Support:\n Name: Shopware Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shopware Admin Account Checkout API",
+    "version": "6.7.9999999-dev"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/api/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Checkout",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create order from cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{shopDomain}/api/checkout/order",
+            "headers": [
+              {
+                "name": "sw-context-token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Converts the current cart into an order."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

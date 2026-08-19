@@ -1,0 +1,639 @@
+{
+  "item": [
+    {
+      "id": "3d887ca2-c0f3-4926-afb8-5e7cc2f8853d",
+      "name": "Cart",
+      "description": {
+        "content": "Manage the shopping cart and its line items",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3c34b408-9203-497c-862b-ac12222e9aee",
+          "name": "Fetch or create a cart",
+          "request": {
+            "name": "Fetch or create a cart",
+            "description": {
+              "content": "Returns the current active cart for the customer session. Creates a new cart if none exists.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "checkout",
+                "cart"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the Shopware instance",
+                  "type": "any",
+                  "value": "{{shopDomain}}",
+                  "key": "shopDomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Customer session context token",
+                "key": "sw-context-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ad657e71-a9ec-4624-83d1-6fc3194e1b62",
+              "name": "Current cart",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "cart"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Customer session context token",
+                    "key": "sw-context-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"token\": \"string\",\n  \"price\": {\n    \"unitPrice\": 8301.731044999255,\n    \"totalPrice\": 2024.8781658932069,\n    \"quantity\": 8171,\n    \"calculatedTaxes\": [\n      {\n        \"tax\": 8493.86681434372,\n        \"taxRate\": 951.4975476827236,\n        \"price\": 7247.584440672177\n      },\n      {\n        \"tax\": 1689.7366370218635,\n        \"taxRate\": 9697.990493454476,\n        \"price\": 3341.995755121313\n      }\n    ]\n  },\n  \"lineItems\": [\n    {\n      \"id\": \"string\",\n      \"referencedId\": \"string\",\n      \"label\": \"string\",\n      \"quantity\": 5184,\n      \"type\": \"promotion\",\n      \"price\": {\n        \"unitPrice\": 1331.2159001367218,\n        \"totalPrice\": 2065.9911757263926,\n        \"quantity\": 5558,\n        \"calculatedTaxes\": [\n          {\n            \"tax\": 4154.344676787891,\n            \"taxRate\": 9561.180311543747,\n            \"price\": 6698.774327306559\n          },\n          {\n            \"tax\": 9347.117497782045,\n            \"taxRate\": 5766.876012013754,\n            \"price\": 834.5219949467464\n          }\n        ]\n      },\n      \"good\": true,\n      \"removable\": true,\n      \"stackable\": true,\n      \"modified\": false\n    },\n    {\n      \"id\": \"string\",\n      \"referencedId\": \"string\",\n      \"label\": \"string\",\n      \"quantity\": 3103,\n      \"type\": \"product\",\n      \"price\": {\n        \"unitPrice\": 8537.0314899439,\n        \"totalPrice\": 1072.2589081257606,\n        \"quantity\": 7585,\n        \"calculatedTaxes\": [\n          {\n            \"tax\": 9307.915480032316,\n            \"taxRate\": 6943.410088363305,\n            \"price\": 3926.931290741926\n          },\n          {\n            \"tax\": 1183.0084098346128,\n            \"taxRate\": 4769.510954338668,\n            \"price\": 1897.2632358138585\n          }\n        ]\n      },\n      \"good\": false,\n      \"removable\": true,\n      \"stackable\": true,\n      \"modified\": true\n    }\n  ],\n  \"errors\": {},\n  \"deliveries\": [\n    {\n      \"trackingCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location\": {},\n      \"deliveryDate\": {},\n      \"shippingMethod\": {},\n      \"shippingOrderAddress\": {}\n    },\n    {\n      \"trackingCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location\": {},\n      \"deliveryDate\": {},\n      \"shippingMethod\": {},\n      \"shippingOrderAddress\": {}\n    }\n  ],\n  \"transactions\": [\n    {\n      \"paymentMethodId\": \"string\",\n      \"amount\": {\n        \"unitPrice\": 650.6424095494367,\n        \"totalPrice\": 351.0089972544006,\n        \"quantity\": 2565,\n        \"calculatedTaxes\": [\n          {\n            \"tax\": 3142.966584049475,\n            \"taxRate\": 6061.878580418493,\n            \"price\": 5207.959054386708\n          },\n          {\n            \"tax\": 4217.859301015287,\n            \"taxRate\": 9432.411230918346,\n            \"price\": 8505.610982580081\n          }\n        ]\n      }\n    },\n    {\n      \"paymentMethodId\": \"string\",\n      \"amount\": {\n        \"unitPrice\": 5443.878037015907,\n        \"totalPrice\": 1515.3010985923897,\n        \"quantity\": 4018,\n        \"calculatedTaxes\": [\n          {\n            \"tax\": 7272.86899341704,\n            \"taxRate\": 2463.2490671038877,\n            \"price\": 9513.501359906746\n          },\n          {\n            \"tax\": 5861.142187645627,\n            \"taxRate\": 384.0336061556171,\n            \"price\": 207.22620062744946\n          }\n        ]\n      }\n    }\n  ],\n  \"modified\": true,\n  \"customerComment\": \"string\",\n  \"affiliateCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "465437f2-b120-4909-bba3-dbcca9905ce0",
+          "name": "Delete a cart",
+          "request": {
+            "name": "Delete a cart",
+            "description": {
+              "content": "Removes the current cart for the customer session.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "checkout",
+                "cart"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the Shopware instance",
+                  "type": "any",
+                  "value": "{{shopDomain}}",
+                  "key": "shopDomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Customer session context token",
+                "key": "sw-context-token",
+                "value": "<string>"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0c2036e2-8964-488d-a0f2-e8b941f1404a",
+              "name": "Cart deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "cart"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Customer session context token",
+                    "key": "sw-context-token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12d8fd54-65c2-4f7f-8853-1794f03b8c2e",
+          "name": "Add items to the cart",
+          "request": {
+            "name": "Add items to the cart",
+            "description": {
+              "content": "Adds one or more line items (products, promotions) to the cart.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "checkout",
+                "cart",
+                "line-item"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the Shopware instance",
+                  "type": "any",
+                  "value": "{{shopDomain}}",
+                  "key": "shopDomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Customer session context token",
+                "key": "sw-context-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"referencedId\": \"<string>\",\n      \"type\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"referencedId\": \"<string>\",\n      \"type\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8b3089a0-4770-4583-849f-f2c0a51a50bb",
+              "name": "Updated cart",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "cart",
+                    "line-item"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Customer session context token",
+                    "key": "sw-context-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"referencedId\": \"<string>\",\n      \"type\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"referencedId\": \"<string>\",\n      \"type\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"token\": \"string\",\n  \"price\": {\n    \"unitPrice\": 8301.731044999255,\n    \"totalPrice\": 2024.8781658932069,\n    \"quantity\": 8171,\n    \"calculatedTaxes\": [\n      {\n        \"tax\": 8493.86681434372,\n        \"taxRate\": 951.4975476827236,\n        \"price\": 7247.584440672177\n      },\n      {\n        \"tax\": 1689.7366370218635,\n        \"taxRate\": 9697.990493454476,\n        \"price\": 3341.995755121313\n      }\n    ]\n  },\n  \"lineItems\": [\n    {\n      \"id\": \"string\",\n      \"referencedId\": \"string\",\n      \"label\": \"string\",\n      \"quantity\": 5184,\n      \"type\": \"promotion\",\n      \"price\": {\n        \"unitPrice\": 1331.2159001367218,\n        \"totalPrice\": 2065.9911757263926,\n        \"quantity\": 5558,\n        \"calculatedTaxes\": [\n          {\n            \"tax\": 4154.344676787891,\n            \"taxRate\": 9561.180311543747,\n            \"price\": 6698.774327306559\n          },\n          {\n            \"tax\": 9347.117497782045,\n            \"taxRate\": 5766.876012013754,\n            \"price\": 834.5219949467464\n          }\n        ]\n      },\n      \"good\": true,\n      \"removable\": true,\n      \"stackable\": true,\n      \"modified\": false\n    },\n    {\n      \"id\": \"string\",\n      \"referencedId\": \"string\",\n      \"label\": \"string\",\n      \"quantity\": 3103,\n      \"type\": \"product\",\n      \"price\": {\n        \"unitPrice\": 8537.0314899439,\n        \"totalPrice\": 1072.2589081257606,\n        \"quantity\": 7585,\n        \"calculatedTaxes\": [\n          {\n            \"tax\": 9307.915480032316,\n            \"taxRate\": 6943.410088363305,\n            \"price\": 3926.931290741926\n          },\n          {\n            \"tax\": 1183.0084098346128,\n            \"taxRate\": 4769.510954338668,\n            \"price\": 1897.2632358138585\n          }\n        ]\n      },\n      \"good\": false,\n      \"removable\": true,\n      \"stackable\": true,\n      \"modified\": true\n    }\n  ],\n  \"errors\": {},\n  \"deliveries\": [\n    {\n      \"trackingCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location\": {},\n      \"deliveryDate\": {},\n      \"shippingMethod\": {},\n      \"shippingOrderAddress\": {}\n    },\n    {\n      \"trackingCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location\": {},\n      \"deliveryDate\": {},\n      \"shippingMethod\": {},\n      \"shippingOrderAddress\": {}\n    }\n  ],\n  \"transactions\": [\n    {\n      \"paymentMethodId\": \"string\",\n      \"amount\": {\n        \"unitPrice\": 650.6424095494367,\n        \"totalPrice\": 351.0089972544006,\n        \"quantity\": 2565,\n        \"calculatedTaxes\": [\n          {\n            \"tax\": 3142.966584049475,\n            \"taxRate\": 6061.878580418493,\n            \"price\": 5207.959054386708\n          },\n          {\n            \"tax\": 4217.859301015287,\n            \"taxRate\": 9432.411230918346,\n            \"price\": 8505.610982580081\n          }\n        ]\n      }\n    },\n    {\n      \"paymentMethodId\": \"string\",\n      \"amount\": {\n        \"unitPrice\": 5443.878037015907,\n        \"totalPrice\": 1515.3010985923897,\n        \"quantity\": 4018,\n        \"calculatedTaxes\": [\n          {\n            \"tax\": 7272.86899341704,\n            \"taxRate\": 2463.2490671038877,\n            \"price\": 9513.501359906746\n          },\n          {\n            \"tax\": 5861.142187645627,\n            \"taxRate\": 384.0336061556171,\n            \"price\": 207.22620062744946\n          }\n        ]\n      }\n    }\n  ],\n  \"modified\": true,\n  \"customerComment\": \"string\",\n  \"affiliateCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c1e347a-dd86-4102-b0ec-6ae299c341b2",
+          "name": "Update items in the cart",
+          "request": {
+            "name": "Update items in the cart",
+            "description": {
+              "content": "Updates quantities or properties of existing line items.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "checkout",
+                "cart",
+                "line-item"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the Shopware instance",
+                  "type": "any",
+                  "value": "{{shopDomain}}",
+                  "key": "shopDomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Customer session context token",
+                "key": "sw-context-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "67e1f60f-af5e-48ea-844a-c035b7e2793b",
+              "name": "Updated cart",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "cart",
+                    "line-item"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Customer session context token",
+                    "key": "sw-context-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"token\": \"string\",\n  \"price\": {\n    \"unitPrice\": 8301.731044999255,\n    \"totalPrice\": 2024.8781658932069,\n    \"quantity\": 8171,\n    \"calculatedTaxes\": [\n      {\n        \"tax\": 8493.86681434372,\n        \"taxRate\": 951.4975476827236,\n        \"price\": 7247.584440672177\n      },\n      {\n        \"tax\": 1689.7366370218635,\n        \"taxRate\": 9697.990493454476,\n        \"price\": 3341.995755121313\n      }\n    ]\n  },\n  \"lineItems\": [\n    {\n      \"id\": \"string\",\n      \"referencedId\": \"string\",\n      \"label\": \"string\",\n      \"quantity\": 5184,\n      \"type\": \"promotion\",\n      \"price\": {\n        \"unitPrice\": 1331.2159001367218,\n        \"totalPrice\": 2065.9911757263926,\n        \"quantity\": 5558,\n        \"calculatedTaxes\": [\n          {\n            \"tax\": 4154.344676787891,\n            \"taxRate\": 9561.180311543747,\n            \"price\": 6698.774327306559\n          },\n          {\n            \"tax\": 9347.117497782045,\n            \"taxRate\": 5766.876012013754,\n            \"price\": 834.5219949467464\n          }\n        ]\n      },\n      \"good\": true,\n      \"removable\": true,\n      \"stackable\": true,\n      \"modified\": false\n    },\n    {\n      \"id\": \"string\",\n      \"referencedId\": \"string\",\n      \"label\": \"string\",\n      \"quantity\": 3103,\n      \"type\": \"product\",\n      \"price\": {\n        \"unitPrice\": 8537.0314899439,\n        \"totalPrice\": 1072.2589081257606,\n        \"quantity\": 7585,\n        \"calculatedTaxes\": [\n          {\n            \"tax\": 9307.915480032316,\n            \"taxRate\": 6943.410088363305,\n            \"price\": 3926.931290741926\n          },\n          {\n            \"tax\": 1183.0084098346128,\n            \"taxRate\": 4769.510954338668,\n            \"price\": 1897.2632358138585\n          }\n        ]\n      },\n      \"good\": false,\n      \"removable\": true,\n      \"stackable\": true,\n      \"modified\": true\n    }\n  ],\n  \"errors\": {},\n  \"deliveries\": [\n    {\n      \"trackingCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location\": {},\n      \"deliveryDate\": {},\n      \"shippingMethod\": {},\n      \"shippingOrderAddress\": {}\n    },\n    {\n      \"trackingCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location\": {},\n      \"deliveryDate\": {},\n      \"shippingMethod\": {},\n      \"shippingOrderAddress\": {}\n    }\n  ],\n  \"transactions\": [\n    {\n      \"paymentMethodId\": \"string\",\n      \"amount\": {\n        \"unitPrice\": 650.6424095494367,\n        \"totalPrice\": 351.0089972544006,\n        \"quantity\": 2565,\n        \"calculatedTaxes\": [\n          {\n            \"tax\": 3142.966584049475,\n            \"taxRate\": 6061.878580418493,\n            \"price\": 5207.959054386708\n          },\n          {\n            \"tax\": 4217.859301015287,\n            \"taxRate\": 9432.411230918346,\n            \"price\": 8505.610982580081\n          }\n        ]\n      }\n    },\n    {\n      \"paymentMethodId\": \"string\",\n      \"amount\": {\n        \"unitPrice\": 5443.878037015907,\n        \"totalPrice\": 1515.3010985923897,\n        \"quantity\": 4018,\n        \"calculatedTaxes\": [\n          {\n            \"tax\": 7272.86899341704,\n            \"taxRate\": 2463.2490671038877,\n            \"price\": 9513.501359906746\n          },\n          {\n            \"tax\": 5861.142187645627,\n            \"taxRate\": 384.0336061556171,\n            \"price\": 207.22620062744946\n          }\n        ]\n      }\n    }\n  ],\n  \"modified\": true,\n  \"customerComment\": \"string\",\n  \"affiliateCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c41927ad-a568-4cde-a55e-7d157ab14b4d",
+          "name": "Remove items from the cart",
+          "request": {
+            "name": "Remove items from the cart",
+            "description": {
+              "content": "Removes one or more line items by their IDs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "checkout",
+                "cart",
+                "line-item"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>,<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname of the Shopware instance",
+                  "type": "any",
+                  "value": "{{shopDomain}}",
+                  "key": "shopDomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Customer session context token",
+                "key": "sw-context-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44d3c9e5-4933-463b-aa41-748821d79152",
+              "name": "Updated cart",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "cart",
+                    "line-item"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Customer session context token",
+                    "key": "sw-context-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"token\": \"string\",\n  \"price\": {\n    \"unitPrice\": 8301.731044999255,\n    \"totalPrice\": 2024.8781658932069,\n    \"quantity\": 8171,\n    \"calculatedTaxes\": [\n      {\n        \"tax\": 8493.86681434372,\n        \"taxRate\": 951.4975476827236,\n        \"price\": 7247.584440672177\n      },\n      {\n        \"tax\": 1689.7366370218635,\n        \"taxRate\": 9697.990493454476,\n        \"price\": 3341.995755121313\n      }\n    ]\n  },\n  \"lineItems\": [\n    {\n      \"id\": \"string\",\n      \"referencedId\": \"string\",\n      \"label\": \"string\",\n      \"quantity\": 5184,\n      \"type\": \"promotion\",\n      \"price\": {\n        \"unitPrice\": 1331.2159001367218,\n        \"totalPrice\": 2065.9911757263926,\n        \"quantity\": 5558,\n        \"calculatedTaxes\": [\n          {\n            \"tax\": 4154.344676787891,\n            \"taxRate\": 9561.180311543747,\n            \"price\": 6698.774327306559\n          },\n          {\n            \"tax\": 9347.117497782045,\n            \"taxRate\": 5766.876012013754,\n            \"price\": 834.5219949467464\n          }\n        ]\n      },\n      \"good\": true,\n      \"removable\": true,\n      \"stackable\": true,\n      \"modified\": false\n    },\n    {\n      \"id\": \"string\",\n      \"referencedId\": \"string\",\n      \"label\": \"string\",\n      \"quantity\": 3103,\n      \"type\": \"product\",\n      \"price\": {\n        \"unitPrice\": 8537.0314899439,\n        \"totalPrice\": 1072.2589081257606,\n        \"quantity\": 7585,\n        \"calculatedTaxes\": [\n          {\n            \"tax\": 9307.915480032316,\n            \"taxRate\": 6943.410088363305,\n            \"price\": 3926.931290741926\n          },\n          {\n            \"tax\": 1183.0084098346128,\n            \"taxRate\": 4769.510954338668,\n            \"price\": 1897.2632358138585\n          }\n        ]\n      },\n      \"good\": false,\n      \"removable\": true,\n      \"stackable\": true,\n      \"modified\": true\n    }\n  ],\n  \"errors\": {},\n  \"deliveries\": [\n    {\n      \"trackingCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location\": {},\n      \"deliveryDate\": {},\n      \"shippingMethod\": {},\n      \"shippingOrderAddress\": {}\n    },\n    {\n      \"trackingCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location\": {},\n      \"deliveryDate\": {},\n      \"shippingMethod\": {},\n      \"shippingOrderAddress\": {}\n    }\n  ],\n  \"transactions\": [\n    {\n      \"paymentMethodId\": \"string\",\n      \"amount\": {\n        \"unitPrice\": 650.6424095494367,\n        \"totalPrice\": 351.0089972544006,\n        \"quantity\": 2565,\n        \"calculatedTaxes\": [\n          {\n            \"tax\": 3142.966584049475,\n            \"taxRate\": 6061.878580418493,\n            \"price\": 5207.959054386708\n          },\n          {\n            \"tax\": 4217.859301015287,\n            \"taxRate\": 9432.411230918346,\n            \"price\": 8505.610982580081\n          }\n        ]\n      }\n    },\n    {\n      \"paymentMethodId\": \"string\",\n      \"amount\": {\n        \"unitPrice\": 5443.878037015907,\n        \"totalPrice\": 1515.3010985923897,\n        \"quantity\": 4018,\n        \"calculatedTaxes\": [\n          {\n            \"tax\": 7272.86899341704,\n            \"taxRate\": 2463.2490671038877,\n            \"price\": 9513.501359906746\n          },\n          {\n            \"tax\": 5861.142187645627,\n            \"taxRate\": 384.0336061556171,\n            \"price\": 207.22620062744946\n          }\n        ]\n      }\n    }\n  ],\n  \"modified\": true,\n  \"customerComment\": \"string\",\n  \"affiliateCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname of the Shopware instance",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-shop.example.com",
+      "key": "shopDomain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{shopDomain}}/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "write:all"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "/api/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c82c7632-4e87-47fa-b58c-ec07859bd6ed",
+    "name": "Shopware Admin Account Cart API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Shopware Admin API provides programmatic access to all back-office and administrative operations including product management, order processing, customer data, indexing, and configuration. It uses OAuth 2.0 authentication and covers 658 endpoints across the full Shopware data model.\n\nContact Support:\n Name: Shopware Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

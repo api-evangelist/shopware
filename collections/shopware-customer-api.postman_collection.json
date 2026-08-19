@@ -1,0 +1,231 @@
+{
+  "item": [
+    {
+      "id": "ea59e836-ca81-457d-8180-0a7ca2d4a219",
+      "name": "Customer",
+      "description": {
+        "content": "Manage customer accounts and addresses",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "14e1038e-6f4b-4186-abeb-44f5fcf5fd14",
+          "name": "List customers",
+          "request": {
+            "name": "List customers",
+            "description": {
+              "content": "Returns a paginated list of customers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Maximum number of resources per page (default 25)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (1-based)"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname of the Shopware instance",
+                  "type": "any",
+                  "value": "{{shopDomain}}",
+                  "key": "shopDomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d8220c7-cc81-49ab-8291-697228b7ce6c",
+              "name": "Paginated list of customers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 6741,\n  \"data\": [\n    {\n      \"id\": \"89e725b8a2f32e74f3e6f6abd4d04ef3\",\n      \"email\": \"7hobxI6Y@dDgpdHPtVPRYZCOeslrSZGrxG.ocuj\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"customerNumber\": \"string\",\n      \"active\": true,\n      \"guest\": true,\n      \"createdAt\": \"1966-01-04T21:21:13.743Z\"\n    },\n    {\n      \"id\": \"cb2f0ce0f1baecb8d48a69b50e56a386\",\n      \"email\": \"hbJqIJFt@KiUQ.wv\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"customerNumber\": \"string\",\n      \"active\": false,\n      \"guest\": false,\n      \"createdAt\": \"1970-11-21T20:05:36.304Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af96366d-369e-4957-af98-29e6371abf3e",
+              "name": "Authentication required or token expired",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname of the Shopware instance",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-shop.example.com",
+      "key": "shopDomain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{shopDomain}}/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "write:all"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "/api/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "38d5e81b-edc8-4851-8467-8e7b1b2ea5fc",
+    "name": "Shopware Admin Account Customer API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Shopware Admin API provides programmatic access to all back-office and administrative operations including product management, order processing, customer data, indexing, and configuration. It uses OAuth 2.0 authentication and covers 658 endpoints across the full Shopware data model.\n\nContact Support:\n Name: Shopware Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

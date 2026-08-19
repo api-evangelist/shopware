@@ -1,0 +1,662 @@
+{
+  "item": [
+    {
+      "id": "70ba86af-ce09-4d02-9688-41e1e19294fa",
+      "name": "Order",
+      "description": {
+        "content": "Access and manage orders and their line items",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e097bd42-936d-46ef-8809-7b69349164d1",
+          "name": "List orders",
+          "request": {
+            "name": "List orders",
+            "description": {
+              "content": "Returns a paginated list of orders.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "order"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Maximum number of resources per page (default 25)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (1-based)"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname of the Shopware instance",
+                  "type": "any",
+                  "value": "{{shopDomain}}",
+                  "key": "shopDomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "19595172-6312-4579-a812-49b1c93ced75",
+              "name": "Paginated list of orders",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 9231,\n  \"data\": [\n    {\n      \"id\": \"c9c4fa0728780ac000f3103b0ba4d478\",\n      \"billingAddressId\": \"8371a29de5927d415b07653257835eba\",\n      \"currencyId\": \"4eb2a31605409e67a0b7c5c27d919f80\",\n      \"salesChannelId\": \"62c5af3e1759446dc9a0fab82b1237ae\",\n      \"orderDateTime\": \"2012-06-08T09:34:42.939Z\",\n      \"stateId\": \"966f7ca72f3e702102ee4f681a66f165\",\n      \"orderNumber\": \"string\",\n      \"amountTotal\": 9765.196440154328,\n      \"amountNet\": 810.4453418974011,\n      \"positionPrice\": 8436.656754578358,\n      \"createdAt\": \"1986-07-27T02:41:47.084Z\",\n      \"updatedAt\": \"1986-08-19T10:23:07.405Z\"\n    },\n    {\n      \"id\": \"dea1308dddda22ea82507774c4d0e608\",\n      \"billingAddressId\": \"7330b85049b243a7ba4c14afff9a3d5f\",\n      \"currencyId\": \"fa92fa4689e29e0b6d21190f84ac3677\",\n      \"salesChannelId\": \"4c4d4d4a7002906544fddd481eab91f9\",\n      \"orderDateTime\": \"1973-03-08T22:07:37.954Z\",\n      \"stateId\": \"042cf91967878e05b94836fe2145bc95\",\n      \"orderNumber\": \"string\",\n      \"amountTotal\": 2213.3070868021764,\n      \"amountNet\": 1027.8592871796832,\n      \"positionPrice\": 2160.5802010650987,\n      \"createdAt\": \"2007-01-17T19:09:50.950Z\",\n      \"updatedAt\": \"2002-06-09T12:26:59.708Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba68273d-168a-474b-8446-850c6debefea",
+              "name": "Authentication required or token expired",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ddd2c768-ae16-4989-9bfe-63d245960dff",
+          "name": "Get an order",
+          "request": {
+            "name": "Get an order",
+            "description": {
+              "content": "Returns a single order by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "order",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Hostname of the Shopware instance",
+                  "type": "any",
+                  "value": "{{shopDomain}}",
+                  "key": "shopDomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b0132e42-e046-4ac1-8dd0-4ad9423de8bd",
+              "name": "Order detail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"78735d37b8584c89356d4123aa91ec83\",\n    \"billingAddressId\": \"8bf4554b522f17b1a9c63d1aa22e5a1f\",\n    \"currencyId\": \"c1e2dc926d8c89bf527793f258dd70b3\",\n    \"salesChannelId\": \"98aee5f17b41a281a45d657fb0217a64\",\n    \"orderDateTime\": \"2016-10-22T16:03:55.428Z\",\n    \"stateId\": \"f9e09c5c278693590266096fe8333408\",\n    \"orderNumber\": \"string\",\n    \"amountTotal\": 7090.002979865865,\n    \"amountNet\": 2782.093841552193,\n    \"positionPrice\": 7155.265535512829,\n    \"createdAt\": \"1973-06-10T18:11:47.546Z\",\n    \"updatedAt\": \"1991-05-19T07:28:44.500Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6b7612ce-5082-4dd6-be66-9423d8fc66c1",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae626a12-8abd-4a38-bf9e-37713f0d80c1",
+          "name": "Create order from cart",
+          "request": {
+            "name": "Create order from cart",
+            "description": {
+              "content": "Converts the current cart into an order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "checkout",
+                "order"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the Shopware instance",
+                  "type": "any",
+                  "value": "{{shopDomain}}",
+                  "key": "shopDomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Customer session context token",
+                "key": "sw-context-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78cb6eff-e3ae-40cb-8b00-55c55405c219",
+              "name": "Order created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Customer session context token",
+                    "key": "sw-context-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"orderNumber\": \"string\",\n  \"orderDateTime\": \"2009-05-24T06:03:47.167Z\",\n  \"amountTotal\": 3932.965721639593,\n  \"amountNet\": 1067.0494120827223,\n  \"stateMachineState\": {\n    \"name\": \"string\",\n    \"technicalName\": \"string\"\n  },\n  \"billingAddress\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2a797a0-605d-4b14-a532-e0447701c14e",
+              "name": "Validation error (e.g. insufficient stock)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Customer session context token",
+                    "key": "sw-context-token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "77e13660-501a-45cf-b4e2-321a86e40f8b",
+          "name": "List customer orders",
+          "request": {
+            "name": "List customer orders",
+            "description": {
+              "content": "Returns order history for the currently authenticated customer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "order"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the Shopware instance",
+                  "type": "any",
+                  "value": "{{shopDomain}}",
+                  "key": "shopDomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Customer session context token",
+                "key": "sw-context-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "74849e21-c529-4f09-b9b6-92048c77f135",
+              "name": "List of orders",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Shopware instance",
+                      "type": "any",
+                      "value": "{{shopDomain}}",
+                      "key": "shopDomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Customer session context token",
+                    "key": "sw-context-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 9662,\n  \"elements\": [\n    {\n      \"id\": \"string\",\n      \"orderNumber\": \"string\",\n      \"orderDateTime\": \"2013-10-28T09:28:29.150Z\",\n      \"amountTotal\": 1679.7294785637284,\n      \"amountNet\": 2867.5659235444027,\n      \"stateMachineState\": {\n        \"name\": \"string\",\n        \"technicalName\": \"string\"\n      },\n      \"billingAddress\": {}\n    },\n    {\n      \"id\": \"string\",\n      \"orderNumber\": \"string\",\n      \"orderDateTime\": \"1965-09-08T01:11:55.217Z\",\n      \"amountTotal\": 3055.378613831228,\n      \"amountNet\": 6463.033888280267,\n      \"stateMachineState\": {\n        \"name\": \"string\",\n        \"technicalName\": \"string\"\n      },\n      \"billingAddress\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname of the Shopware instance",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-shop.example.com",
+      "key": "shopDomain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{shopDomain}}/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "write:all"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "/api/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "31a5fe8f-fd3e-4766-801f-4c4131b38c15",
+    "name": "Shopware Admin Account Order API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Shopware Admin API provides programmatic access to all back-office and administrative operations including product management, order processing, customer data, indexing, and configuration. It uses OAuth 2.0 authentication and covers 658 endpoints across the full Shopware data model.\n\nContact Support:\n Name: Shopware Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}
