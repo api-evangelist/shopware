@@ -27,6 +27,14 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/shopware.png
 tags:
   - E-Commerce
+  - Open-Source
+  - Headless Commerce
+  - B2B
+  - B2C
+  - REST
+  - Authentication
+tags_raw:
+  - E-Commerce
   - Open Source
   - Headless Commerce
   - B2B
@@ -114,6 +122,8 @@ apis:
   humanURL: https://shopware.stoplight.io/docs/admin-api
   baseURL: https://{your-shop-domain}/api
   tags:
+  - Customers
+  tags_raw:
   - Customer
   properties:
   - type: OpenAPI
