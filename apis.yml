@@ -243,8 +243,6 @@ common:
     url: json-schema/shopware-cart-schema.json
   - type: JSONSchema
     url: json-schema/shopware-order-schema.json
-  - type: Blog
-    url: blogs/blogs.json
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
