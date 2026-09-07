@@ -27,6 +27,18 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "shopware-account-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "shopware-bulk-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "shopware-cart-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "shopware-category-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "shopware-checkout-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "shopware-customer-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "shopware-navigation-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "shopware-order-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "shopware-product-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "shopware-search-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }

@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Shopware Admin Account Search API
   version: 6.7.9999999-dev
@@ -67,159 +67,6 @@ paths:
                 $ref: '#/components/schemas/ProductListResponse_2'
 components:
   schemas:
-    Price:
-      type: object
-      description: Currency-specific price entry
-      required:
-      - currencyId
-      - gross
-      - net
-      - linked
-      properties:
-        currencyId:
-          type: string
-          pattern: ^[0-9a-f]{32}$
-        gross:
-          type: number
-          format: float
-          description: Gross price (including tax)
-        net:
-          type: number
-          format: float
-          description: Net price (excluding tax)
-        linked:
-          type: boolean
-          description: If true, net price is calculated from gross automatically
-        listPrice:
-          type: object
-          description: Original / strike-through price
-          properties:
-            gross:
-              type: number
-              format: float
-            net:
-              type: number
-              format: float
-            linked:
-              type: boolean
-    SearchCriteria:
-      type: object
-      description: Shopware DAL search criteria
-      properties:
-        page:
-          type: integer
-          default: 1
-        limit:
-          type: integer
-          default: 25
-        filter:
-          type: array
-          items:
-            type: object
-        sort:
-          type: array
-          items:
-            type: object
-            properties:
-              field:
-                type: string
-              order:
-                type: string
-                enum:
-                - ASC
-                - DESC
-        aggregations:
-          type: array
-          items:
-            type: object
-        term:
-          type: string
-          description: Full-text search term
-        includes:
-          type: object
-          description: Sparse fieldsets per entity
-    StoreCriteria:
-      type: object
-      properties:
-        page:
-          type: integer
-          default: 1
-        limit:
-          type: integer
-          default: 24
-        filter:
-          type: array
-          items:
-            type: object
-        sort:
-          type: array
-          items:
-            type: object
-        term:
-          type: string
-        includes:
-          type: object
-    Product_2:
-      type: object
-      properties:
-        id:
-          type: string
-        productNumber:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        active:
-          type: boolean
-        cover:
-          type: object
-          properties:
-            id:
-              type: string
-            url:
-              type: string
-        calculatedPrice:
-          $ref: '#/components/schemas/CalculatedPrice'
-        calculatedListingPrice:
-          type: object
-        availableStock:
-          type: integer
-    ProductListResponse_2:
-      type: object
-      properties:
-        total:
-          type: integer
-        elements:
-          type: array
-          items:
-            $ref: '#/components/schemas/Product_2'
-    CalculatedPrice:
-      type: object
-      properties:
-        unitPrice:
-          type: number
-          format: float
-        totalPrice:
-          type: number
-          format: float
-        quantity:
-          type: integer
-        calculatedTaxes:
-          type: array
-          items:
-            type: object
-            properties:
-              tax:
-                type: number
-              taxRate:
-                type: number
-              price:
-                type: number
-        taxRules:
-          type: array
-          items:
-            type: object
     Product:
       type: object
       description: Shopware product entity (since version 6.0.0.0)
@@ -305,6 +152,42 @@ components:
           type: string
           format: date-time
           readOnly: true
+    SearchCriteria:
+      type: object
+      description: Shopware DAL search criteria
+      properties:
+        page:
+          type: integer
+          default: 1
+        limit:
+          type: integer
+          default: 25
+        filter:
+          type: array
+          items:
+            type: object
+        sort:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              order:
+                type: string
+                enum:
+                - ASC
+                - DESC
+        aggregations:
+          type: array
+          items:
+            type: object
+        term:
+          type: string
+          description: Full-text search term
+        includes:
+          type: object
+          description: Sparse fieldsets per entity
     ProductListResponse:
       type: object
       properties:
@@ -314,6 +197,123 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Product'
+    CalculatedPrice:
+      type: object
+      properties:
+        unitPrice:
+          type: number
+          format: float
+        totalPrice:
+          type: number
+          format: float
+        quantity:
+          type: integer
+        calculatedTaxes:
+          type: array
+          items:
+            type: object
+            properties:
+              tax:
+                type: number
+              taxRate:
+                type: number
+              price:
+                type: number
+        taxRules:
+          type: array
+          items:
+            type: object
+    Product_2:
+      type: object
+      properties:
+        id:
+          type: string
+        productNumber:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        active:
+          type: boolean
+        cover:
+          type: object
+          properties:
+            id:
+              type: string
+            url:
+              type: string
+        calculatedPrice:
+          $ref: '#/components/schemas/CalculatedPrice'
+        calculatedListingPrice:
+          type: object
+        availableStock:
+          type: integer
+    StoreCriteria:
+      type: object
+      properties:
+        page:
+          type: integer
+          default: 1
+        limit:
+          type: integer
+          default: 24
+        filter:
+          type: array
+          items:
+            type: object
+        sort:
+          type: array
+          items:
+            type: object
+        term:
+          type: string
+        includes:
+          type: object
+    Price:
+      type: object
+      description: Currency-specific price entry
+      required:
+      - currencyId
+      - gross
+      - net
+      - linked
+      properties:
+        currencyId:
+          type: string
+          pattern: ^[0-9a-f]{32}$
+        gross:
+          type: number
+          format: float
+          description: Gross price (including tax)
+        net:
+          type: number
+          format: float
+          description: Net price (excluding tax)
+        linked:
+          type: boolean
+          description: If true, net price is calculated from gross automatically
+        listPrice:
+          type: object
+          description: Original / strike-through price
+          properties:
+            gross:
+              type: number
+              format: float
+            net:
+              type: number
+              format: float
+            linked:
+              type: boolean
+    ProductListResponse_2:
+      type: object
+      properties:
+        total:
+          type: integer
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product_2'
   parameters:
     SwContextToken:
       name: sw-context-token

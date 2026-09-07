@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Shopware Admin Account Cart API
   version: 6.7.9999999-dev
@@ -148,6 +148,96 @@ components:
           type: boolean
         modified:
           type: boolean
+    CalculatedPrice:
+      type: object
+      properties:
+        unitPrice:
+          type: number
+          format: float
+        totalPrice:
+          type: number
+          format: float
+        quantity:
+          type: integer
+        calculatedTaxes:
+          type: array
+          items:
+            type: object
+            properties:
+              tax:
+                type: number
+              taxRate:
+                type: number
+              price:
+                type: number
+        taxRules:
+          type: array
+          items:
+            type: object
+    CartDelivery:
+      type: object
+      properties:
+        trackingCodes:
+          type: array
+          items:
+            type: string
+        location:
+          type: object
+        deliveryDate:
+          type: object
+        shippingMethod:
+          type: object
+        shippingOrderAddress:
+          type: object
+        positions:
+          type: array
+          items:
+            type: object
+    CartItems:
+      type: object
+      required:
+      - items
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            required:
+            - id
+            - referencedId
+            - type
+            - quantity
+            properties:
+              id:
+                type: string
+              referencedId:
+                type: string
+              type:
+                type: string
+                enum:
+                - product
+                - promotion
+              quantity:
+                type: integer
+                minimum: 1
+    CartItemsUpdate:
+      type: object
+      required:
+      - items
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            required:
+            - id
+            - quantity
+            properties:
+              id:
+                type: string
+              quantity:
+                type: integer
+                minimum: 1
     Cart:
       type: object
       description: Shopware shopping cart
@@ -192,96 +282,6 @@ components:
           oneOf:
           - type: string
           - type: 'null'
-    CalculatedPrice:
-      type: object
-      properties:
-        unitPrice:
-          type: number
-          format: float
-        totalPrice:
-          type: number
-          format: float
-        quantity:
-          type: integer
-        calculatedTaxes:
-          type: array
-          items:
-            type: object
-            properties:
-              tax:
-                type: number
-              taxRate:
-                type: number
-              price:
-                type: number
-        taxRules:
-          type: array
-          items:
-            type: object
-    CartItems:
-      type: object
-      required:
-      - items
-      properties:
-        items:
-          type: array
-          items:
-            type: object
-            required:
-            - id
-            - referencedId
-            - type
-            - quantity
-            properties:
-              id:
-                type: string
-              referencedId:
-                type: string
-              type:
-                type: string
-                enum:
-                - product
-                - promotion
-              quantity:
-                type: integer
-                minimum: 1
-    CartDelivery:
-      type: object
-      properties:
-        trackingCodes:
-          type: array
-          items:
-            type: string
-        location:
-          type: object
-        deliveryDate:
-          type: object
-        shippingMethod:
-          type: object
-        shippingOrderAddress:
-          type: object
-        positions:
-          type: array
-          items:
-            type: object
-    CartItemsUpdate:
-      type: object
-      required:
-      - items
-      properties:
-        items:
-          type: array
-          items:
-            type: object
-            required:
-            - id
-            - quantity
-            properties:
-              id:
-                type: string
-              quantity:
-                type: integer
-                minimum: 1
   parameters:
     SwContextToken:
       name: sw-context-token
